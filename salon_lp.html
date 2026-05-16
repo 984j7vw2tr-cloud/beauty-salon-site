@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATELIER KAZE — Hair Salon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Josefin+Sans:wght@100;200;300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf8f4;
+      --charcoal: #2a2520;
+      --taupe: #8b7d6b;
+      --gold: #c9a96e;
+      --light-taupe: #d4c9b8;
+      --dark-accent: #1a1612;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--warm-white);
+      color: var(--charcoal);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 4rem;
+      mix-blend-mode: normal;
+      background: rgba(250, 248, 244, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(139,125,107,0.12);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.28em;
+      font-weight: 300;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--charcoal);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 6rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+      line-height: 1.08;
+      font-weight: 300;
+      color: var(--charcoal);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--taupe);
+    }
+
+    .hero-desc {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: var(--taupe);
+      max-width: 340px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.7s forwards;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--charcoal);
+      padding: 1.1rem 2.6rem;
+      text-decoration: none;
+      transition: background 0.35s, color 0.35s;
+      width: fit-content;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.9s forwards;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold);
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-bg {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #d4c9b8 0%, #b8a898 30%, #9a8878 60%, #7a6858 100%);
+      position: relative;
+    }
+
+    .hero-image-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 30% 60%, rgba(201,169,110,0.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, rgba(250,248,244,0.15) 0%, transparent 45%);
+    }
+
+    /* decorative botanical line art */
+    .hero-image-bg::after {
+      content: '';
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 180px;
+      height: 300px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 300'%3E%3Cg fill='none' stroke='rgba(250,248,244,0.4)' stroke-width='1'%3E%3Cpath d='M90 280 Q90 200 90 150'/%3E%3Cpath d='M90 200 Q60 170 30 160'/%3E%3Cpath d='M90 220 Q120 190 150 175'/%3E%3Cpath d='M90 170 Q55 140 35 115'/%3E%3Cpath d='M90 185 Q125 155 145 128'/%3E%3Cellipse cx='30' cy='155' rx='28' ry='18' transform='rotate(-30 30 155)'/%3E%3Cellipse cx='150' cy='170' rx='28' ry='18' transform='rotate(25 150 170)'/%3E%3Cellipse cx='35' cy='108' rx='24' ry='15' transform='rotate(-40 35 108)'/%3E%3Cellipse cx='145' cy='122' rx='24' ry='15' transform='rotate(35 145 122)'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.7;
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 3rem;
+      left: 2.5rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: rgba(250,248,244,0.6);
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 8rem 6rem;
+    }
+
+    .section-label {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--taupe);
+    }
+
+    /* divider */
+    .thin-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* ── MENU ── */
+    #menu {
+      background: var(--cream);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .menu-card {
+      background: var(--warm-white);
+      padding: 2.8rem 2.4rem;
+      border-top: 2px solid transparent;
+      transition: border-color 0.3s, transform 0.35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .menu-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .menu-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .menu-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 0.6rem;
+      color: var(--charcoal);
+    }
+
+    .menu-desc {
+      font-size: 0.8rem;
+      line-height: 1.9;
+      color: var(--taupe);
+    }
+
+    /* ── PRICING ── */
+    #pricing {
+      background: var(--warm-white);
+    }
+
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .pricing-intro p {
+      font-size: 0.85rem;
+      line-height: 2;
+      color: var(--taupe);
+    }
+
+    .price-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--light-taupe);
+      gap: 1rem;
+      position: relative;
+    }
+
+    .price-row::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      height: 1px;
+      width: 0;
+      background: var(--gold);
+      transition: width 0.4s ease;
+    }
+
+    .price-row:hover::after {
+      width: 100%;
+    }
+
+    .price-row:first-child {
+      border-top: 1px solid var(--light-taupe);
+    }
+
+    .price-category {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .price-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+
+    .price-sub {
+      font-size: 0.72rem;
+      color: var(--taupe);
+      margin-top: 0.2rem;
+    }
+
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      white-space: nowrap;
+      color: var(--charcoal);
+    }
+
+    .price-amount span {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.75rem;
+      color: var(--taupe);
+      margin-left: 0.2rem;
+    }
+
+    .price-note {
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      color: var(--taupe);
+      line-height: 1.8;
+    }
+
+    /* ── ACCESS ── */
+    #access {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
+    #access .section-title {
+      color: var(--cream);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .access-map {
+      aspect-ratio: 4/3;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,169,110,0.2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Decorative map placeholder */
+    .access-map svg {
+      opacity: 0.5;
+    }
+
+    .map-placeholder-text {
+      position: absolute;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .info-block {
+      margin-bottom: 2.4rem;
+    }
+
+    .info-label {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-value {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: rgba(245,240,232,0.85);
+    }
+
+    .access-note {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.45);
+      line-height: 2;
+    }
+
+    .reserve-btn {
+      display: inline-block;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      background: var(--gold);
+      padding: 1.1rem 2.6rem;
+      text-decoration: none;
+      margin-top: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .reserve-btn:hover {
+      background: var(--cream);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark-accent);
+      color: rgba(245,240,232,0.35);
+      padding: 2.5rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      letter-spacing: 0.25em;
+      color: rgba(245,240,232,0.55);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { gap: 1.6rem; }
+
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 5rem 2.5rem 3rem; }
+      .hero-right { height: 55vw; }
+
+      section { padding: 5rem 2.5rem; }
+
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .access-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    @media (max-width: 560px) {
+      .menu-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">ATELIER KAZE</a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#access">Access</a></li>
+      <li><a href="#access">Reserve</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Hair Salon — Tokyo, Minami-Aoyama</p>
+      <h1 class="hero-title">あなたらしい<br><em>美しさ</em>を<br>丁寧に。</h1>
+      <p class="hero-desc">
+        素材を活かしたデザインと、ひとりひとりに向き合う丁寧なカウンセリング。<br>
+        日常に溶け込む、自分だけのスタイルを。
+      </p>
+      <a href="#menu" class="hero-cta">メニューを見る</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-image-bg"></div>
+      <span class="hero-caption">Natural · Timeless · You</span>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="thin-rule"></div>
+    <p class="section-label">Our Services</p>
+    <h2 class="section-title reveal">こだわりの<br><em>メニュー</em></h2>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <span class="menu-icon">✂</span>
+        <p class="menu-name">カット</p>
+        <p class="menu-desc">骨格・髪質・ライフスタイルを丁寧に分析し、あなたに最適なスタイルをご提案します。毎日のスタイリングが楽になるカットを目指します。</p>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-icon">◎</span>
+        <p class="menu-name">カラー</p>
+        <p class="menu-desc">イルミナカラー・バレイヤージュ・インナーカラーなど、傷みを最小限に抑えながら自然で透明感のある発色を実現します。</p>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-icon">〜</span>
+        <p class="menu-name">パーマ</p>
+        <p class="menu-desc">ゆるふわウェーブからしっかりカールまで。髪へのダメージに配慮した薬剤を使用し、ナチュラルなかかり具合を大切にします。</p>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-icon">♦</span>
+        <p class="menu-name">ヘッドスパ</p>
+        <p class="menu-desc">頭皮の血行促進・毛穴の汚れオフ・リラクゼーション効果のある至福のスパタイム。髪の美しさは健康な頭皮から。</p>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-icon">◇</span>
+        <p class="menu-name">トリートメント</p>
+        <p class="menu-desc">CMC補修・髄質充填など最新ケアで、傷んだ髪を芯から補修。サロン帰りのような艶感を自宅でも持続させます。</p>
+      </div>
+      <div class="menu-card reveal">
+        <span class="menu-icon">✦</span>
+        <p class="menu-name">縮毛矯正</p>
+        <p class="menu-desc">くせ毛・うねりのお悩みに。ダメージを極限まで抑えながら、自然なストレートへ。雨の日もまとまる仕上がりを。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="pricing-layout">
+      <div class="pricing-intro">
+        <div class="thin-rule"></div>
+        <p class="section-label">Price List</p>
+        <h2 class="section-title reveal">料金<br><em>案内</em></h2>
+        <p class="reveal">明瞭な価格設定で、安心してご来店いただけます。<br>すべて税込み表示です。<br><br>初回ご来店の方は、カウンセリング後に最適なプランをご提案いたします。</p>
+      </div>
+      <div>
+        <div class="price-list reveal">
+          <div class="price-row">
+            <div>
+              <p class="price-category">Cut</p>
+              <p class="price-item-name">カット</p>
+              <p class="price-sub">シャンプー・ブロー込み</p>
+            </div>
+            <div class="price-amount">¥ 7,700<span>〜</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-category">Color</p>
+              <p class="price-item-name">フルカラー</p>
+              <p class="price-sub">リタッチ / 全体</p>
+            </div>
+            <div class="price-amount">¥ 9,900<span>〜</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-category">Color</p>
+              <p class="price-item-name">バレイヤージュ / ハイライト</p>
+              <p class="price-sub">デザイン・範囲により変動</p>
+            </div>
+            <div class="price-amount">¥ 16,500<span>〜</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-category">Perm</p>
+              <p class="price-item-name">パーマ</p>
+              <p class="price-sub">ショート / ミディアム / ロング</p>
+            </div>
+            <div class="price-amount">¥ 13,200<span>〜</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-category">Straightening</p>
+              <p class="price-item-name">縮毛矯正</p>
+              <p class="price-sub">全体 / 部分</p>
+            </div>
+            <div class="price-amount">¥ 22,000<span>〜</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-category">Spa & Treatment</p>
+              <p class="price-item-name">ヘッドスパ</p>
+              <p class="price-sub">40分コース</p>
+            </div>
+            <div class="price-amount">¥ 6,600<span>〜</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-category">Spa & Treatment</p>
+              <p class="price-item-name">トリートメント</p>
+              <p class="price-sub">髪質・長さによる</p>
+            </div>
+            <div class="price-amount">¥ 4,400<span>〜</span></div>
+          </div>
+        </div>
+        <p class="price-note reveal">※ 表示価格はすべて税込みです。<br>※ 髪の長さ・状態によりご料金が異なる場合があります。<br>※ カット＋カラーなどのセットメニューはご相談ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section id="access">
+    <div class="thin-rule" style="background:var(--gold);opacity:0.6;"></div>
+    <p class="section-label">Find Us</p>
+    <h2 class="section-title reveal">アクセス</h2>
+    <div class="access-grid">
+      <div class="access-map reveal">
+        <svg width="200" height="160" viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="80" x2="200" y2="80" stroke="rgba(201,169,110,0.4)" stroke-width="1"/>
+          <line x1="100" y1="0" x2="100" y2="160" stroke="rgba(201,169,110,0.4)" stroke-width="1"/>
+          <line x1="20" y1="40" x2="180" y2="40" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+          <line x1="20" y1="120" x2="180" y2="120" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+          <line x1="50" y1="0" x2="50" y2="160" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+          <line x1="150" y1="0" x2="150" y2="160" stroke="rgba(201,169,110,0.2)" stroke-width="0.5"/>
+          <circle cx="100" cy="80" r="8" fill="var(--gold)" opacity="0.9"/>
+          <circle cx="100" cy="80" r="14" stroke="var(--gold)" stroke-width="1" fill="none" opacity="0.4"/>
+          <circle cx="100" cy="80" r="22" stroke="var(--gold)" stroke-width="0.5" fill="none" opacity="0.2"/>
+        </svg>
+        <span class="map-placeholder-text">Google Maps で開く ↗</span>
+      </div>
+      <div class="reveal">
+        <div class="info-block">
+          <p class="info-label">Address</p>
+          <p class="info-value">〒107-0062<br>東京都港区南青山3-X-X<br>青山ビル 2F</p>
+        </div>
+        <div class="info-block">
+          <p class="info-label">Hours</p>
+          <p class="info-value">
+            平日　10:00 – 20:00<br>
+            土日祝　9:00 – 19:00<br>
+            定休日：毎週火曜日
+          </p>
+        </div>
+        <div class="info-block">
+          <p class="info-label">Access</p>
+          <p class="info-value">東京メトロ銀座線「表参道駅」A4出口より徒歩5分</p>
+        </div>
+        <div class="info-block">
+          <p class="info-label">Contact</p>
+          <p class="info-value">03-XXXX-XXXX</p>
+        </div>
+        <p class="access-note">ご予約はお電話またはオンラインにて承っております。<br>当日・直前のご予約はお電話にてお問い合わせください。</p>
+        <a href="tel:03-XXXX-XXXX" class="reserve-btn">ご予約はこちら</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">ATELIER KAZE</span>
+    <span>© 2026 Atelier Kaze. All rights reserved.</span>
+    <span>Tokyo, Minami-Aoyama</span>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 80 * (Array.from(reveals).indexOf(entry.target) % 4));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
