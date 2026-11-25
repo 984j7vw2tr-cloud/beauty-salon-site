@@ -18,18 +18,18 @@ export const metadata: Metadata = {
 };
 
 const flow = [
-  { en: "Contact", title: "LINEでご相談", body: "まずはLINEで、お困りごとやご要望をお気軽にお送りください。" },
-  { en: "Hearing", title: "ヒアリング", body: "現在の業務フローや課題、目指したい状態を詳しくお伺いします。" },
-  { en: "Proposal", title: "ご提案・お見積り", body: "課題に合った解決方法と進め方、費用をご提案します。" },
-  { en: "Development", title: "開発・制作", body: "途中経過を共有しながら、スピーディーに開発を進めます。" },
-  { en: "Support", title: "導入・改善", body: "導入後も、運用状況に合わせて改善を続けます。" },
+  { title: "LINEでご相談", body: "まずはLINEで、お困りごとやご要望をお気軽にお送りください。" },
+  { title: "ヒアリング", body: "現在の業務フローや課題、目指したい状態を詳しくお伺いします。" },
+  { title: "ご提案・お見積り", body: "課題に合った解決方法と進め方、費用をご提案します。" },
+  { title: "開発・制作", body: "途中経過を共有しながら、スピーディーに開発を進めます。" },
+  { title: "導入・改善", body: "導入後も、運用状況に合わせて改善を続けます。" },
 ];
 
 export default function ServicePage() {
   return (
     <>
       <PageHero
-        eyebrow="Service"
+        eyebrow="サービス"
         title="サービス"
         description="AIシステム開発、業務自動化、Webサイト制作。企業や店舗が抱える課題に合わせて、必要な技術を必要な形でご提供します。"
       />
@@ -97,8 +97,7 @@ export default function ServicePage() {
 
               <div className="lg:col-span-7">
                 <Reveal>
-                  <p className="eyebrow">Solutions</p>
-                  <p className="mt-3 text-lg font-bold text-ink">提供できる内容</p>
+                  <p className="text-lg font-bold text-ink">提供できる内容</p>
                 </Reveal>
                 <ul className="mt-8 space-y-4">
                   {s.items.map((item, i) => (
@@ -138,13 +137,12 @@ export default function ServicePage() {
       {/* Flow */}
       <section className="border-t border-hair py-24 sm:py-32">
         <div className="container-x">
-          <SectionHeading eyebrow="Flow" title="ご相談から導入までの流れ" description="まずはお気軽にご相談ください。内容を伺ったうえで、最適な進め方をご提案します。" />
+          <SectionHeading eyebrow="ご相談の流れ" title="ご相談から導入までの流れ" description="まずはお気軽にご相談ください。内容を伺ったうえで、最適な進め方をご提案します。" />
           <ol className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {flow.map((f, i) => (
               <Reveal as="li" key={f.title} delay={i * 80} className="relative rounded-3xl border border-hair bg-white p-7">
-                <span className="font-display text-xs font-bold tracking-[0.2em] text-brand">STEP {String(i + 1).padStart(2, "0")}</span>
-                <p className="mt-1 font-display text-[11px] tracking-[0.18em] text-ink-muted uppercase">{f.en}</p>
-                <h3 className="mt-6 text-base font-bold text-ink">{f.title}</h3>
+                <span className="font-display text-xs font-bold tracking-[0.2em] text-brand">ステップ {i + 1}</span>
+                <h3 className="mt-4 text-base font-bold text-ink">{f.title}</h3>
                 <p className="mt-3 text-[13.5px] leading-[1.9] text-ink-soft">{f.body}</p>
               </Reveal>
             ))}

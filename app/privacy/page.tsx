@@ -61,11 +61,11 @@ const sections: { title: string; body: React.ReactNode }[] = [
     ),
   },
   {
-    title: "6. アクセス解析・Cookie",
+    title: "6. アクセス解析・クッキー",
     body: (
       <p>
-        当サイトでは、サイトの利用状況を把握し改善に役立てるため、アクセス解析ツールやCookieを利用する場合があります。
-        これらにより取得される情報には、個人を特定する情報は含まれません。Cookieはブラウザの設定により無効にすることができます。
+        当サイトでは、サイトの利用状況を把握し改善に役立てるため、アクセス解析ツールやクッキーを利用する場合があります。
+        これらにより取得される情報には、個人を特定する情報は含まれません。クッキーはブラウザの設定により無効にすることができます。
       </p>
     ),
   },
@@ -82,7 +82,7 @@ const sections: { title: string; body: React.ReactNode }[] = [
 export default function PrivacyPage() {
   return (
     <>
-      <PageHero eyebrow="Privacy Policy" title="プライバシーポリシー" />
+      <PageHero eyebrow="個人情報の取り扱い" title="プライバシーポリシー" />
       <section className="py-20 sm:py-28">
         <div className="container-x max-w-3xl">
           <p className="text-[15px] leading-[2.1] text-ink-soft">

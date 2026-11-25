@@ -3,9 +3,9 @@ import { Bot, Inbox, BellRing, Check, Sparkles } from "lucide-react";
 /** HEROの装飾ビジュアル（AIによる業務フローのイメージ図。実績データではありません） */
 export function HeroVisual() {
   const steps = [
-    { icon: Inbox, title: "問い合わせを受信", meta: "Web / LINE / Mail" },
-    { icon: Bot, title: "AIが内容を分類・要約", meta: "Classify & Summarize" },
-    { icon: BellRing, title: "担当者へ自動で通知", meta: "Notify & Assign" },
+    { icon: Inbox, title: "問い合わせを受信", meta: "フォーム・LINE・メール" },
+    { icon: Bot, title: "AIが内容を分類・要約", meta: "内容と緊急度を自動で判定" },
+    { icon: BellRing, title: "担当者へ自動で通知", meta: "チャットへ即時に共有" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export function HeroVisual() {
           </div>
           <span className="flex items-center gap-1.5 rounded-full bg-mist px-3 py-1 font-display text-[10px] font-semibold tracking-[0.18em] text-ink-muted">
             <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-line" />
-            AUTOMATION
+            自動化フロー
           </span>
         </div>
 
@@ -43,7 +43,7 @@ export function HeroVisual() {
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-[13.5px] font-bold text-ink">{s.title}</span>
-                <span className="block font-display text-[10.5px] tracking-[0.12em] text-ink-muted">{s.meta}</span>
+                <span className="block text-[10.5px] tracking-[0.04em] text-ink-muted">{s.meta}</span>
               </span>
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-line/10 text-line">
                 <Check size={14} strokeWidth={3} />

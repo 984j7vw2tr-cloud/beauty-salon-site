@@ -33,7 +33,7 @@ export function CtaSection({
         </svg>
         <div className="container-x relative text-center">
           <Reveal>
-            <p className="eyebrow text-brand-sky">CONTACT</p>
+            <p className="eyebrow text-brand-sky">お問い合わせ</p>
             <h2 className="mt-6 font-display text-[26px] leading-[1.5] font-bold tracking-tight sm:text-4xl sm:leading-[1.45] lg:text-[44px]">
               {title}
             </h2>

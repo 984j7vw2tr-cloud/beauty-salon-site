@@ -33,7 +33,7 @@ export function WorkCard({ work, headingLevel = "h3" }: { work: Work; headingLev
         <H className="mt-4 text-lg font-bold text-ink">{work.title}</H>
         <p className="mt-3 flex-1 text-sm leading-[1.9] text-ink-soft">{work.summary}</p>
         <span className="mt-6 inline-flex items-center gap-1.5 font-display text-xs font-bold tracking-[0.16em] text-brand">
-          VIEW DETAIL
+          詳しく見る
           <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
       </div>

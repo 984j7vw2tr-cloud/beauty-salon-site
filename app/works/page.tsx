@@ -21,7 +21,7 @@ export default function WorksPage() {
   return (
     <>
       <PageHero
-        eyebrow="Works"
+        eyebrow="制作実績"
         title="制作実績・開発事例"
         description="ciary Technologiesが手がけるシステム・Webサイトをご紹介します。"
       />
@@ -46,7 +46,7 @@ export default function WorksPage() {
           <Reveal>
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="eyebrow">Development Samples</p>
+                <p className="eyebrow">開発サンプル</p>
                 <h2 className="mt-4 font-display text-2xl font-bold text-ink sm:text-3xl">開発サンプル</h2>
               </div>
             </div>

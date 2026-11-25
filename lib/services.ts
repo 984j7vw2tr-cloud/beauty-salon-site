@@ -19,7 +19,7 @@ export const services: Service[] = [
   {
     id: "ai-system",
     number: "01",
-    title: "AI SYSTEM DEVELOPMENT",
+    title: "AIシステム開発",
     titleJa: "AIシステム・Webアプリケーション開発",
     summary:
       "業務や事業に合わせて、AIを組み込んだシステムやWebアプリケーションを設計・開発します。",
@@ -29,7 +29,7 @@ export const services: Service[] = [
     problems: [
       "社内の情報が散らばっていて、必要な資料をすぐに探せない",
       "同じ質問への回答に、毎日多くの時間を取られている",
-      "顧客情報や業務の進捗をExcelで管理していて限界を感じる",
+      "顧客情報や業務の進捗を表計算ソフトで管理していて限界を感じる",
       "既存ツールが自社の業務フローに合わない",
     ],
     items: [
@@ -63,7 +63,7 @@ export const services: Service[] = [
   {
     id: "ai-automation",
     number: "02",
-    title: "AI AUTOMATION",
+    title: "AI業務自動化",
     titleJa: "AI業務自動化・DX支援",
     summary:
       "AIと各種ツールを組み合わせ、日々の定型業務を自動化。人が本来の仕事に集中できる環境をつくります。",
@@ -105,14 +105,14 @@ export const services: Service[] = [
       {
         title: "各種ツール間の連携",
         description:
-          "チャット、スプレッドシート、CRMなど、普段お使いのツール同士をつなぎ、データの流れを自動化します。",
+          "チャット、表計算ソフト、顧客管理ツールなど、普段お使いのツール同士をつなぎ、データの流れを自動化します。",
       },
     ],
   },
   {
     id: "web",
     number: "03",
-    title: "WEB DEVELOPMENT",
+    title: "Webサイト制作",
     titleJa: "Webサイト・LP制作",
     summary:
       "企業の信頼を伝えるホームページや、成果につながるランディングページを設計・制作します。",
@@ -144,7 +144,7 @@ export const services: Service[] = [
       {
         title: "既存サイトの改善",
         description:
-          "表示速度・スマートフォン対応・SEO・導線を見直し、今あるサイトの成果を高めます。",
+          "表示速度・スマートフォン対応・検索エンジン対策・導線を見直し、今あるサイトの成果を高めます。",
       },
     ],
   },

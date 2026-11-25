@@ -34,7 +34,7 @@ export const works: Work[] = [
     slug: "ai-internal-helpdesk",
     type: "sample",
     title: "AI社内問い合わせシステム",
-    category: "AI SYSTEM",
+    category: "AIシステム",
     summary:
       "社内マニュアルや規程をもとに、従業員からの質問にAIが回答する社内向けヘルプデスクのサンプルです。",
     challenge:
@@ -45,14 +45,14 @@ export const works: Work[] = [
       "回答できない質問の担当者へのエスカレーション",
       "よくある質問の傾向の可視化",
     ],
-    stack: ["Next.js", "TypeScript", "LLM API", "ベクトル検索"],
+    stack: ["Webアプリケーション", "生成AI", "社内文書の検索"],
     visual: "chat",
   },
   {
     slug: "inquiry-management",
     type: "sample",
     title: "問い合わせ管理システム",
-    category: "WEB APPLICATION",
+    category: "Webアプリケーション",
     summary:
       "メール・フォーム・LINEなど複数の窓口から届く問い合わせを一元管理し、AIが内容を分類するシステムのサンプルです。",
     challenge:
@@ -63,14 +63,14 @@ export const works: Work[] = [
       "担当者の割り当てとステータス管理",
       "返信文の下書き生成",
     ],
-    stack: ["Next.js", "TypeScript", "データベース", "LLM API"],
+    stack: ["Webアプリケーション", "データベース", "生成AI"],
     visual: "inbox",
   },
   {
     slug: "automation-dashboard",
     type: "sample",
     title: "業務自動化ダッシュボード",
-    category: "AI AUTOMATION",
+    category: "業務自動化",
     summary:
       "自動化した業務フローの実行状況や処理件数を一画面で確認できる、管理用ダッシュボードのサンプルです。",
     challenge:
@@ -81,7 +81,7 @@ export const works: Work[] = [
       "エラー発生時の通知",
       "フローごとの有効・無効の切り替え",
     ],
-    stack: ["Next.js", "TypeScript", "ワークフロー連携", "通知API"],
+    stack: ["Webアプリケーション", "ツール連携", "自動通知"],
     visual: "dashboard",
   },
 ];

@@ -45,7 +45,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<Param
           <div className="container-x relative">
             <Link href="/works" className="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[0.16em] text-ink-muted hover:text-brand">
               <ArrowLeft size={14} aria-hidden />
-              BACK TO WORKS
+              一覧へ戻る
             </Link>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <WorkBadge type={work.type} />
@@ -91,16 +91,16 @@ export default async function WorkDetailPage({ params }: { params: Promise<Param
               <dl className="space-y-6 text-sm">
                 {work.client && (
                   <div>
-                    <dt className="eyebrow text-ink-muted">Client</dt>
+                    <dt className="eyebrow text-ink-muted">お客様</dt>
                     <dd className="mt-2 font-bold text-ink">{work.client}</dd>
                   </div>
                 )}
                 <div>
-                  <dt className="eyebrow text-ink-muted">Category</dt>
+                  <dt className="eyebrow text-ink-muted">分類</dt>
                   <dd className="mt-2 font-bold text-ink">{work.category}</dd>
                 </div>
                 <div>
-                  <dt className="eyebrow text-ink-muted">Technology</dt>
+                  <dt className="eyebrow text-ink-muted">使用技術</dt>
                   <dd className="mt-3 flex flex-wrap gap-2">
                     {work.stack.map((t) => (
                       <span key={t} className="rounded-full border border-hair bg-white px-3 py-1 text-xs text-ink-soft">

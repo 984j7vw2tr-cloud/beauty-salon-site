@@ -31,9 +31,9 @@ export const siteConfig = {
 } as const;
 
 export const navItems = [
-  { label: "TOP", href: "/" },
-  { label: "SERVICE", href: "/service" },
-  { label: "WORKS", href: "/works" },
-  { label: "ABOUT", href: "/about" },
-  { label: "CONTACT", href: "/contact" },
+  { label: "ホーム", href: "/" },
+  { label: "サービス", href: "/service" },
+  { label: "制作実績", href: "/works" },
+  { label: "私たちについて", href: "/about" },
+  { label: "お問い合わせ", href: "/contact" },
 ] as const;

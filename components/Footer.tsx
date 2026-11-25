@@ -24,11 +24,11 @@ export function Footer() {
 
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-7">
             <div>
-              <p className="eyebrow text-ink-muted">Menu</p>
+              <p className="eyebrow text-ink-muted">メニュー</p>
               <ul className="mt-5 space-y-3">
                 {navItems.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="font-display text-sm font-semibold tracking-wider text-ink transition-colors hover:text-brand">
+                    <Link href={item.href} className="text-sm font-bold text-ink transition-colors hover:text-brand">
                       {item.label}
                     </Link>
                   </li>
@@ -36,7 +36,7 @@ export function Footer() {
               </ul>
             </div>
             <div className="sm:col-span-2">
-              <p className="eyebrow text-ink-muted">Service</p>
+              <p className="eyebrow text-ink-muted">サービス</p>
               <ul className="mt-5 space-y-3">
                 {services.map((s) => (
                   <li key={s.id}>
@@ -52,7 +52,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col-reverse gap-4 border-t border-hair pt-8 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
-            <small className="text-xs">&copy; {year} {siteConfig.name}. All rights reserved.</small>
+            <small className="text-xs">&copy; {year} {siteConfig.name}</small>
           </p>
           <Link href="/privacy" className="transition-colors hover:text-ink">
             プライバシーポリシー

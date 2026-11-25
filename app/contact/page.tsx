@@ -32,7 +32,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact"
+        eyebrow="お問い合わせ"
         title="お問い合わせ"
         description="AIシステム開発・業務自動化・Web制作について、お気軽にご相談ください。"
       />
@@ -41,7 +41,7 @@ export default function ContactPage() {
         <div className="container-x">
           <Reveal className="relative overflow-hidden rounded-[32px] border border-hair bg-white p-8 text-center shadow-[0_40px_80px_-50px_rgb(7_22_52/0.35)] sm:p-16">
             <div aria-hidden className="pointer-events-none absolute -top-32 left-1/2 h-72 w-[600px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse,rgb(6_199_85/0.14),transparent_65%)] blur-2xl" />
-            <p className="eyebrow relative text-line">LINE Official Account</p>
+            <p className="eyebrow relative text-line">LINE公式アカウント</p>
             <h2 className="relative mt-5 text-2xl leading-[1.6] font-bold text-ink sm:text-[32px]">
               LINEで、かんたんにご相談いただけます
             </h2>
@@ -77,7 +77,7 @@ export default function ContactPage() {
       <section className="border-t border-hair bg-mist py-20 sm:py-28">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow">Examples</p>
+            <p className="eyebrow">ご相談例</p>
             <h2 className="mt-5 font-display text-2xl leading-[1.5] font-bold text-ink sm:text-3xl">
               このようなご相談を
               <br />

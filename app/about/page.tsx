@@ -9,7 +9,7 @@ import { CtaSection } from "@/components/CtaSection";
 export const metadata: Metadata = {
   title: "私たちについて",
   description:
-    "ciary Technologiesの企業理念「Technology for a Better Business.」と事業方針、概要をご紹介します。",
+    "ciary Technologiesの企業理念「テクノロジーで、ビジネスをより良く。」と事業方針、概要をご紹介します。",
   alternates: { canonical: "/about" },
   openGraph: { url: "/about", title: "私たちについて | ciary Technologies" },
 };
@@ -37,9 +37,9 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHero eyebrow="About" title="私たちについて" description="AIとテクノロジーで、企業の可能性を広げる。" />
+      <PageHero eyebrow="私たちについて" title="私たちについて" description="AIとテクノロジーで、企業の可能性を広げる。" />
 
-      {/* Philosophy */}
+      {/* 企業理念 */}
       <section className="relative overflow-hidden bg-navy-950 py-24 text-white sm:py-36">
         <div aria-hidden className="grid-bg-dark pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_80%_50%,black,transparent)]" />
         <div aria-hidden className="pointer-events-none absolute top-1/2 right-[-10%] h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgb(20_99_243/0.4),transparent_65%)] blur-2xl" />
@@ -47,11 +47,12 @@ export default function AboutPage() {
           <Reveal>
             <p className="eyebrow flex items-center gap-3 text-brand-sky">
               <span aria-hidden className="h-px w-8 bg-current opacity-60" />
-              Philosophy
+              企業理念
             </p>
-            <h2 className="mt-8 font-display text-[38px] leading-[1.1] font-bold tracking-[-0.02em] sm:text-6xl lg:text-7xl">
-              Technology for a<br />
-              <span className="bg-gradient-to-r from-brand-light to-brand-sky bg-clip-text text-transparent">Better Business.</span>
+            <h2 className="mt-8 font-display text-[34px] leading-[1.35] font-bold tracking-[0.01em] sm:text-5xl lg:text-6xl">
+              テクノロジーで、
+              <br />
+              ビジネスを<span className="bg-gradient-to-r from-brand-light to-brand-sky bg-clip-text text-transparent">より良く</span>。
             </h2>
           </Reveal>
           <Reveal delay={120}>
@@ -70,7 +71,7 @@ export default function AboutPage() {
       {/* Policy */}
       <section className="py-24 sm:py-36">
         <div className="container-x">
-          <SectionHeading eyebrow="Policy" title="事業方針" description="私たちが仕事をするうえで大切にしている考え方です。" />
+          <SectionHeading eyebrow="事業方針" title="事業方針" description="私たちが仕事をするうえで大切にしている考え方です。" />
           <ul className="mt-16 grid gap-5 md:grid-cols-3">
             {policies.map((p, i) => (
               <Reveal as="li" key={p.title} delay={i * 100} className="rounded-3xl border border-hair bg-white p-8 sm:p-10">
@@ -90,7 +91,7 @@ export default function AboutPage() {
       <section className="bg-mist py-24 sm:py-36">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading eyebrow="Profile" title="概要" />
+            <SectionHeading eyebrow="概要" title="概要" />
           </div>
           <Reveal className="lg:col-span-8">
             <dl className="overflow-hidden rounded-3xl border border-hair bg-white">

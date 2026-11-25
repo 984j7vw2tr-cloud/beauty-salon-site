@@ -66,7 +66,7 @@ export function Header({ lineButton, lineButtonMobile }: Props) {
                     <Link
                       href={item.href}
                       aria-current={active ? "page" : undefined}
-                      className={`relative rounded-full px-4 py-2 font-display text-[12.5px] font-semibold tracking-[0.16em] transition-colors ${
+                      className={`relative rounded-full px-4 py-2 text-[13px] font-bold tracking-[0.08em] transition-colors ${
                         active ? "text-ink" : "text-ink-muted hover:text-ink"
                       }`}
                     >
@@ -116,7 +116,7 @@ export function Header({ lineButton, lineButtonMobile }: Props) {
                   className="flex items-center justify-between py-5"
                 >
                   <span
-                    className={`font-display text-2xl font-bold tracking-[0.06em] ${
+                    className={`text-xl font-bold tracking-[0.04em] ${
                       isActive(item.href) ? "text-brand" : "text-ink"
                     }`}
                   >
