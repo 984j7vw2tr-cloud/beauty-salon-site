@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --font-display: var(--font-latin), var(--font-jp), system-ui, sans-serif;
+
+  --color-navy-950: #040c1f;
+  --color-navy-900: #071634;
+  --color-navy-800: #0c2149;
+  --color-navy-700: #14306a;
+  --color-ink: #0b1a38;
+  --color-ink-soft: #3d4a63;
+  --color-ink-muted: #6b768c;
+
+  --color-brand: #1463f3;
+  --color-brand-light: #2f8bff;
+  --color-brand-sky: #5fb3ff;
+
+  --color-line: #06c755;
+  --color-line-dark: #05b04b;
+
+  --color-mist: #f4f6fa;
+  --color-hair: #e3e8f0;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    font-feature-settings: "palt" 1;
+    letter-spacing: 0.02em;
+    word-break: auto-phrase;
+    line-break: strict;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-brand) 18%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-10;
+  }
+  .eyebrow {
+    @apply font-display text-[11px] font-semibold tracking-[0.28em] text-brand uppercase;
+  }
+  .text-gradient {
+    background: linear-gradient(100deg, var(--color-navy-800) 0%, var(--color-brand) 55%, var(--color-brand-sky) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgb(11 26 56 / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(11 26 56 / 0.055) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .grid-bg-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 1.1s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* JS無効時でも表示する */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Hero animation ---------- */
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-3%, 4%, 0) scale(1.06); }
+}
+@keyframes draw {
+  from { stroke-dashoffset: var(--len, 2000); }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes travel {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+@keyframes scroll-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-float-slow { animation: float-slow 18s ease-in-out infinite; }
+.animate-draw {
+  stroke-dasharray: var(--len, 2000);
+  stroke-dashoffset: var(--len, 2000);
+  animation: draw 2.6s var(--ease-out-expo) 0.3s forwards;
+}
+.animate-fade-up {
+  opacity: 0;
+  animation: fade-up 1.1s var(--ease-out-expo) forwards;
+  animation-delay: var(--d, 0ms);
+}
+.animate-pulse-dot { animation: pulse-dot 2.4s ease-in-out infinite; }
+.animate-marquee { animation: marquee 40s linear infinite; }
+.animate-scroll-line { animation: scroll-line 2s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .animate-fade-up { opacity: 1; transform: none; }
+  .animate-draw { stroke-dashoffset: 0; }
+}
