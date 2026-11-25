@@ -39,3 +39,16 @@ npm run build && npm start   # 本番ビルド確認
 `/` `/service` `/works` `/works/[slug]` `/about` `/contact` `/privacy` ・404 ・`/sitemap.xml` ・`/robots.txt`
 
 `salon_lp.html` はリポジトリに元からあったファイルで、本サイトとは無関係のため手を加えていません。
+
+## イラスト画像
+
+`public/images/illustrations/` の画像は、`scripts/illustrations/scenes.html` をもとにコードで描いたものです。
+内容を変えたら `node scripts/illustrations/render.mjs` で書き出し直せます。
+AIで生成した画像などに差し替える場合は、同じファイル名で上書きしてください（サイズ比率をそろえると表示が崩れません）。
+
+| ファイル | 使っている場所 |
+| --- | --- |
+| `hero-ring.webp`（透過） | トップのファーストビュー、私たちについて（企業理念） |
+| `globe.webp`（透過） | トップの「私たちの考え」 |
+| `service-ai.webp` / `service-automation.webp` / `service-web.webp`（16:10） | トップのサービス一覧、サービスページ |
+| `contact-chat.webp`（透過） | お問い合わせページ |

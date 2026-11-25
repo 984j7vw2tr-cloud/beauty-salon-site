@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ciary illustrations</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --navy-950: #040c1f; --navy-900: #071634; --navy-800: #0c2149; --navy-700: #14306a;
+    --ink: #0b1a38; --ink-soft: #3d4a63; --muted: #6b768c; --hair: #e3e8f0; --mist: #f4f6fa;
+    --brand: #1463f3; --brand-light: #2f8bff; --sky: #27c2ff; --violet: #7c3aed; --ok: #10b981;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #888; font-family: "Noto Sans JP", sans-serif; padding: 40px; display: grid; gap: 40px; justify-content: start; }
+  [data-scene] { position: relative; overflow: hidden; }
+  canvas { display: block; }
+
+  /* ---------- dark scene backdrop ---------- */
+  .dark {
+    background:
+      radial-gradient(ellipse 60% 55% at 75% 20%, rgb(39 194 255 / .22), transparent 70%),
+      radial-gradient(ellipse 70% 60% at 15% 90%, rgb(124 58 237 / .25), transparent 70%),
+      linear-gradient(160deg, var(--navy-800), var(--navy-950) 70%);
+  }
+  .dark::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / .05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / .05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+
+  /* ---------- isometric stage ---------- */
+  .stage { position: absolute; inset: 0; perspective: 2400px; display: grid; place-items: center; }
+  .iso { position: relative; transform-style: preserve-3d; transform: rotateX(56deg) rotateZ(-38deg); }
+  .glass {
+    position: absolute; border-radius: 28px;
+    background: linear-gradient(145deg, rgb(255 255 255 / .16), rgb(255 255 255 / .04));
+    border: 1.5px solid rgb(255 255 255 / .22);
+    box-shadow: 0 40px 80px -20px rgb(0 0 0 / .55), inset 0 1px 0 rgb(255 255 255 / .25);
+    backdrop-filter: blur(6px);
+  }
+  .solid { position: absolute; border-radius: 28px; background: #fff; box-shadow: 0 50px 90px -30px rgb(0 0 0 / .6); }
+  .bar { height: 14px; border-radius: 7px; background: rgb(255 255 255 / .35); }
+  .bar.d { background: var(--hair); }
+  .glow-line { position: absolute; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--brand), var(--sky)); box-shadow: 0 0 24px 4px rgb(39 194 255 / .7); }
+
+  .chip-label { font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: .04em; }
+  .jp { font-family: "Noto Sans JP", sans-serif; }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     1. HERO: 3D ring (transparent)
+========================================================== -->
+<div data-scene="hero-ring" data-alpha style="width:1200px;height:1200px;background:transparent">
+  <canvas id="ring" width="1200" height="1200"></canvas>
+</div>
+
+<!-- =========================================================
+     2. GLOBE: dot sphere network (transparent, for dark sections)
+========================================================== -->
+<div data-scene="globe" data-alpha style="width:1200px;height:1200px;background:transparent">
+  <canvas id="globe" width="1200" height="1200"></canvas>
+</div>
+
+<!-- =========================================================
+     3. SERVICE: AI system (isometric glass stack)
+========================================================== -->
+<div data-scene="service-ai" class="dark" style="width:1600px;height:1000px">
+  <div class="stage">
+    <div class="iso" style="width:760px;height:560px;margin-left:60px;margin-top:260px;transform:scale(1.4) rotateX(56deg) rotateZ(-38deg)">
+      <!-- base: documents -->
+      <div class="glass" style="inset:0;transform:translateZ(0)">
+        <div style="position:absolute;inset:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+          <div class="glass" style="position:relative;height:200px;padding:26px;display:grid;gap:14px;align-content:start"><div class="bar" style="width:60%"></div><div class="bar"></div><div class="bar" style="width:80%"></div><div class="bar" style="width:70%"></div></div>
+          <div class="glass" style="position:relative;height:200px;padding:26px;display:grid;gap:14px;align-content:start"><div class="bar" style="width:50%"></div><div class="bar"></div><div class="bar" style="width:85%"></div><div class="bar" style="width:60%"></div></div>
+          <div class="glass" style="position:relative;height:200px;padding:26px;display:grid;gap:14px;align-content:start"><div class="bar" style="width:70%"></div><div class="bar"></div><div class="bar" style="width:75%"></div><div class="bar" style="width:55%"></div></div>
+          <div class="glass" style="position:relative;height:200px;padding:26px;display:grid;gap:14px;align-content:start"><div class="bar" style="width:55%"></div><div class="bar"></div><div class="bar" style="width:65%"></div></div>
+          <div class="glass" style="position:relative;height:200px;padding:26px;display:grid;gap:14px;align-content:start"><div class="bar" style="width:65%"></div><div class="bar"></div><div class="bar" style="width:90%"></div></div>
+          <div class="glass" style="position:relative;height:200px;padding:26px;display:grid;gap:14px;align-content:start"><div class="bar" style="width:45%"></div><div class="bar"></div><div class="bar" style="width:70%"></div></div>
+        </div>
+      </div>
+      <!-- middle: chat window -->
+      <div class="solid" style="left:120px;top:70px;width:520px;height:420px;transform:translateZ(170px);padding:36px;display:grid;gap:22px;align-content:start">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--navy-800),var(--brand))"></div>
+          <div style="display:grid;gap:8px"><div class="bar d" style="width:160px;background:#cfd7e4"></div><div class="bar d" style="width:100px"></div></div>
+        </div>
+        <div class="jp" style="justify-self:end;max-width:78%;background:var(--brand);color:#fff;padding:16px 22px;border-radius:20px 20px 6px 20px;font-size:21px;font-weight:500">有給休暇の申請方法は？</div>
+        <div class="jp" style="max-width:88%;background:var(--mist);color:var(--ink);padding:18px 22px;border-radius:20px 20px 20px 6px;font-size:20px;line-height:1.6">社内規程によると、申請は勤怠システムから行います。手順は次のとおりです。</div>
+        <div style="display:flex;gap:10px"><span style="padding:8px 16px;border-radius:999px;background:rgb(20 99 243 / .1);color:var(--brand);font-size:16px;font-weight:700" class="jp">参照：就業規則</span></div>
+      </div>
+      <!-- top: AI chip -->
+      <div style="position:absolute;left:520px;top:-40px;width:170px;height:170px;transform:translateZ(300px);border-radius:40px;background:linear-gradient(140deg,var(--sky),var(--brand) 50%,var(--violet));box-shadow:0 0 80px 10px rgb(39 194 255 / .55), 0 40px 60px -20px rgb(0 0 0 / .6);display:grid;place-items:center">
+        <div style="width:110px;height:110px;border-radius:26px;border:3px solid rgb(255 255 255 / .55);display:grid;place-items:center;color:#fff;font-size:44px" class="chip-label">AI</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     4. SERVICE: automation (isometric flow)
+========================================================== -->
+<div data-scene="service-automation" class="dark" style="width:1600px;height:1000px">
+  <div class="stage">
+    <div class="iso" style="width:1100px;height:420px;margin-top:60px;transform:scale(1.18) rotateX(56deg) rotateZ(-38deg)">
+      <!-- track plate -->
+      <div class="glass" style="inset:0;border-radius:40px"></div>
+      <!-- pipes -->
+      <div class="glow-line" style="left:300px;top:205px;width:200px;transform:translateZ(20px)"></div>
+      <div class="glow-line" style="left:640px;top:205px;width:200px;transform:translateZ(20px)"></div>
+      <!-- packets -->
+      <div style="position:absolute;left:370px;top:196px;width:24px;height:24px;border-radius:50%;background:#fff;transform:translateZ(24px);box-shadow:0 0 30px 8px var(--sky)"></div>
+      <div style="position:absolute;left:760px;top:196px;width:24px;height:24px;border-radius:50%;background:#fff;transform:translateZ(24px);box-shadow:0 0 30px 8px var(--sky)"></div>
+      <!-- blocks -->
+      <div data-block style="left:70px;top:90px" class="blk"><svg viewBox="0 0 24 24" width="84" height="84" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg><span class="jp">受信</span></div>
+      <div data-block data-hot style="left:440px;top:90px" class="blk"><svg viewBox="0 0 24 24" width="84" height="84" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg><span class="jp">AIが判定</span></div>
+      <div data-block style="left:810px;top:90px" class="blk"><svg viewBox="0 0 24 24" width="84" height="84" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M22 8c0-2.3-.8-4.3-2-6"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/><path d="M4 2C2.8 3.7 2 5.7 2 8"/></svg><span class="jp">通知</span></div>
+    </div>
+  </div>
+  <style>
+    .blk { position:absolute; width:230px; height:230px; border-radius:40px; transform:translateZ(70px);
+      background:linear-gradient(150deg,#fff,#e8eef8); color:var(--navy-800);
+      display:grid; place-items:center; align-content:center; gap:10px;
+      box-shadow: 0 0 0 1.5px rgb(255 255 255 / .6), 26px 26px 0 -2px #b9c6dc, 52px 52px 80px -10px rgb(0 0 0 / .6); }
+    .blk span { font-size:26px; font-weight:700; }
+    .blk[data-hot] { background:linear-gradient(140deg,var(--sky),var(--brand) 55%,var(--violet)); color:#fff;
+      box-shadow: 0 0 0 1.5px rgb(255 255 255 / .4), 26px 26px 0 -2px #0d2c78, 0 0 90px 10px rgb(39 194 255 / .45), 52px 52px 80px -10px rgb(0 0 0 / .6); }
+  </style>
+</div>
+
+<!-- =========================================================
+     5. SERVICE: web (desktop + phone mockups)
+========================================================== -->
+<div data-scene="service-web" class="dark" style="width:1600px;height:1000px">
+  <div class="stage" style="perspective:2600px">
+    <div style="position:relative;width:1100px;height:700px;transform-style:preserve-3d;transform:rotateY(-16deg) rotateX(6deg)">
+      <!-- desktop browser -->
+      <div style="position:absolute;inset:0;border-radius:26px;background:#fff;overflow:hidden;box-shadow:0 60px 120px -30px rgb(0 0 0 / .7),0 0 0 1.5px rgb(255 255 255 / .3)">
+        <div style="height:54px;background:var(--mist);display:flex;align-items:center;gap:10px;padding:0 22px;border-bottom:1px solid var(--hair)">
+          <span style="width:13px;height:13px;border-radius:50%;background:#d4dae5"></span><span style="width:13px;height:13px;border-radius:50%;background:#d4dae5"></span><span style="width:13px;height:13px;border-radius:50%;background:#d4dae5"></span>
+          <div style="margin-left:24px;height:28px;width:420px;border-radius:14px;background:#fff;border:1px solid var(--hair)"></div>
+        </div>
+        <div style="height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 56px">
+          <div style="width:120px;height:20px;border-radius:6px;background:var(--ink)"></div>
+          <div style="display:flex;gap:26px"><div class="bar d" style="width:70px;height:12px"></div><div class="bar d" style="width:70px;height:12px"></div><div class="bar d" style="width:70px;height:12px"></div><div style="width:110px;height:36px;border-radius:18px;background:var(--ok)"></div></div>
+        </div>
+        <div style="position:relative;height:330px;margin:10px 56px;border-radius:22px;overflow:hidden;background:radial-gradient(ellipse 60% 80% at 85% 10%, rgb(39 194 255 / .35), transparent 70%),linear-gradient(135deg,#f6f9ff,#e7efff)">
+          <div style="position:absolute;left:48px;top:70px;display:grid;gap:18px">
+            <div style="width:420px;height:36px;border-radius:8px;background:var(--ink)"></div>
+            <div style="width:300px;height:36px;border-radius:8px;background:linear-gradient(90deg,var(--brand),var(--sky))"></div>
+            <div class="bar d" style="width:380px;background:#c9d3e3;margin-top:12px"></div>
+            <div class="bar d" style="width:300px;background:#c9d3e3"></div>
+            <div style="display:flex;gap:14px;margin-top:14px"><div style="width:150px;height:46px;border-radius:23px;background:var(--ink)"></div><div style="width:150px;height:46px;border-radius:23px;background:var(--ok)"></div></div>
+          </div>
+          <div style="position:absolute;right:48px;top:50px;width:300px;height:230px;border-radius:20px;background:rgb(255 255 255 / .8);box-shadow:0 20px 40px -20px rgb(7 22 52 / .4);padding:22px;display:grid;gap:14px;align-content:start">
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--navy-800),var(--brand))"></div><div class="bar d" style="width:150px"></div></div>
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--navy-800),var(--brand))"></div><div class="bar d" style="width:120px"></div></div>
+            <div style="display:flex;gap:12px;align-items:center"><div style="width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--navy-800),var(--brand))"></div><div class="bar d" style="width:170px"></div></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:24px 56px">
+          <div style="height:150px;border-radius:18px;border:1px solid var(--hair)"></div><div style="height:150px;border-radius:18px;border:1px solid var(--hair)"></div><div style="height:150px;border-radius:18px;border:1px solid var(--hair)"></div>
+        </div>
+      </div>
+      <!-- phone -->
+      <div style="position:absolute;right:-90px;bottom:-60px;width:270px;height:540px;border-radius:44px;background:#0a1428;padding:12px;transform:translateZ(160px);box-shadow:0 60px 100px -20px rgb(0 0 0 / .8),0 0 0 2px rgb(255 255 255 / .18)">
+        <div style="width:100%;height:100%;border-radius:34px;background:#fff;overflow:hidden">
+          <div style="height:180px;background:radial-gradient(ellipse 80% 80% at 90% 0%, rgb(39 194 255 / .4), transparent 70%),linear-gradient(135deg,#f6f9ff,#e7efff);padding:54px 22px 0;display:grid;gap:12px;align-content:start">
+            <div style="width:170px;height:20px;border-radius:5px;background:var(--ink)"></div>
+            <div style="width:120px;height:20px;border-radius:5px;background:linear-gradient(90deg,var(--brand),var(--sky))"></div>
+            <div class="bar d" style="width:190px;height:10px;background:#c9d3e3;margin-top:6px"></div>
+          </div>
+          <div style="padding:18px 22px;display:grid;gap:14px">
+            <div style="height:44px;border-radius:22px;background:var(--ink)"></div>
+            <div style="height:44px;border-radius:22px;background:var(--ok)"></div>
+            <div style="height:110px;border-radius:16px;border:1px solid var(--hair)"></div>
+            <div style="height:70px;border-radius:16px;border:1px solid var(--hair)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     6. CONTACT: phone chat (transparent)
+========================================================== -->
+<div data-scene="contact-chat" data-alpha style="width:900px;height:1100px;background:transparent">
+  <div style="position:absolute;left:50%;top:50%;width:520px;height:1000px;transform:translate(-50%,-50%) rotate(-4deg);border-radius:76px;background:linear-gradient(160deg,#1b2a4a,#050c1d);padding:20px;box-shadow:0 80px 120px -40px rgb(7 22 52 / .55),0 0 0 2px rgb(255 255 255 / .08) inset">
+    <div style="position:relative;width:100%;height:100%;border-radius:58px;background:#f2f5fa;overflow:hidden">
+      <div style="position:absolute;left:50%;top:18px;width:150px;height:38px;border-radius:20px;background:#050c1d;transform:translateX(-50%)"></div>
+      <div style="padding:84px 30px 22px;background:#fff;border-bottom:1px solid var(--hair);display:flex;align-items:center;gap:16px">
+        <img src="../../public/images/ciary-mark.png" style="width:56px;height:56px;object-fit:contain;border-radius:16px;background:#fff;box-shadow:0 0 0 1px var(--hair);padding:6px">
+        <div><div style="font-family:Manrope;font-weight:800;font-size:28px;color:var(--ink)">ciary</div><div class="jp" style="font-size:16px;color:var(--muted)">AI・業務自動化のご相談</div></div>
+      </div>
+      <div class="jp" style="padding:30px 26px;display:grid;gap:22px;font-size:22px;line-height:1.65">
+        <div style="justify-self:end;max-width:82%;background:var(--brand);color:#fff;padding:18px 22px;border-radius:26px 26px 8px 26px">問い合わせ対応を自動化したいのですが、相談できますか？</div>
+        <div style="max-width:86%;background:#fff;color:var(--ink);padding:18px 22px;border-radius:26px 26px 26px 8px;box-shadow:0 6px 20px -10px rgb(7 22 52 / .25)">はい、もちろんです。今はどのように対応されていますか？</div>
+        <div style="justify-self:end;max-width:82%;background:var(--brand);color:#fff;padding:18px 22px;border-radius:26px 26px 8px 26px">メールとLINEに届くので、手が回らなくて…</div>
+        <div style="max-width:86%;background:#fff;color:var(--ink);padding:18px 22px;border-radius:26px 26px 26px 8px;box-shadow:0 6px 20px -10px rgb(7 22 52 / .25)">まずは今の流れを整理して、自動化できるところをご提案しますね。</div>
+        <div style="display:flex;gap:8px;padding-left:12px"><span class="dot"></span><span class="dot" style="opacity:.6"></span><span class="dot" style="opacity:.3"></span></div>
+      </div>
+      <div style="position:absolute;left:22px;right:22px;bottom:30px;height:66px;border-radius:33px;background:#fff;box-shadow:0 0 0 1px var(--hair);display:flex;align-items:center;justify-content:flex-end;padding:0 10px">
+        <div style="width:48px;height:48px;border-radius:50%;background:var(--brand)"></div>
+      </div>
+    </div>
+  </div>
+  <style>.dot{width:12px;height:12px;border-radius:50%;background:var(--muted)}</style>
+</div>
+
+<script>
+/* ---------- 3D ring (torus) ---------- */
+(function () {
+  const c = document.getElementById("ring"), g = c.getContext("2d");
+  const W = c.width, H = c.height, cx = W / 2, cy = H / 2;
+  const R = 380, r = 74;
+  const ax = 1.08, az = -0.42; // tilt
+  const stops = [[0, [124, 58, 237]], [0.28, [29, 78, 216]], [0.55, [20, 99, 243]], [0.8, [39, 194, 255]], [1, [124, 58, 237]]];
+  const col = (t) => {
+    for (let i = 0; i < stops.length - 1; i++) {
+      const [t0, c0] = stops[i], [t1, c1] = stops[i + 1];
+      if (t >= t0 && t <= t1) { const k = (t - t0) / (t1 - t0); return c0.map((v, j) => v + (c1[j] - v) * k); }
+    }
+    return stops[0][1];
+  };
+  const L = (() => { const v = [-0.4, -0.7, 0.6]; const n = Math.hypot(...v); return v.map((x) => x / n); })();
+  const pts = [];
+  const NU = 1400, NV = 120;
+  for (let i = 0; i < NU; i++) {
+    const u = (i / NU) * Math.PI * 2;
+    for (let j = 0; j < NV; j++) {
+      const v = (j / NV) * Math.PI * 2;
+      let x = (R + r * Math.cos(v)) * Math.cos(u), y = (R + r * Math.cos(v)) * Math.sin(u), z = r * Math.sin(v);
+      let nx = Math.cos(v) * Math.cos(u), ny = Math.cos(v) * Math.sin(u), nz = Math.sin(v);
+      // rotate X
+      let y1 = y * Math.cos(ax) - z * Math.sin(ax), z1 = y * Math.sin(ax) + z * Math.cos(ax);
+      let ny1 = ny * Math.cos(ax) - nz * Math.sin(ax), nz1 = ny * Math.sin(ax) + nz * Math.cos(ax);
+      // rotate Z
+      let x2 = x * Math.cos(az) - y1 * Math.sin(az), y2 = x * Math.sin(az) + y1 * Math.cos(az);
+      let nx2 = nx * Math.cos(az) - ny1 * Math.sin(az), ny2 = nx * Math.sin(az) + ny1 * Math.cos(az);
+      const diff = Math.max(0, nx2 * L[0] + ny2 * L[1] + nz1 * L[2]);
+      const spec = Math.pow(Math.max(0, nz1 * 0.9 + diff * 0.4), 18);
+      pts.push([x2, y2, z1, i / NU, diff, spec]);
+    }
+  }
+  pts.sort((a, b) => a[2] - b[2]);
+  for (const [x, y, z, t, d, s] of pts) {
+    const base = col(t);
+    const k = 0.38 + 0.75 * d;
+    const sp = s * 0.55;
+    const rr = Math.min(255, base[0] * k + 235 * sp), gg = Math.min(255, base[1] * k + 245 * sp), bb = Math.min(255, base[2] * k + 255 * sp);
+    g.fillStyle = `rgb(${rr | 0},${gg | 0},${bb | 0})`;
+    g.fillRect(cx + x - 1.6, cy + y - 1.6, 3.2, 3.2);
+  }
+  // bloom
+  const tmp = document.createElement("canvas"); tmp.width = W; tmp.height = H;
+  const tg = tmp.getContext("2d"); tg.filter = "blur(40px)"; tg.globalAlpha = 0.55; tg.drawImage(c, 0, 0);
+  g.globalCompositeOperation = "destination-over"; g.drawImage(tmp, 0, 0); g.globalCompositeOperation = "source-over";
+  // thin orbit
+  g.save(); g.translate(cx, cy); g.rotate(-0.42);
+  const og = g.createLinearGradient(-560, 0, 560, 0);
+  og.addColorStop(0, "rgba(39,194,255,0)"); og.addColorStop(0.5, "rgba(39,194,255,.85)"); og.addColorStop(1, "rgba(124,58,237,0)");
+  g.strokeStyle = og; g.lineWidth = 2.5; g.beginPath(); g.ellipse(0, 30, 540, 150, 0.12, 0, Math.PI * 2); g.stroke(); g.restore();
+  // sparkle
+  const star = (x, y, s) => {
+    g.save(); g.translate(x, y);
+    g.shadowColor = "rgba(39,194,255,.9)"; g.shadowBlur = 40;
+    const sg = g.createLinearGradient(-s, -s, s, s); sg.addColorStop(0, "#7fe3ff"); sg.addColorStop(1, "#1463f3");
+    g.fillStyle = sg; g.beginPath();
+    g.moveTo(0, -s); g.quadraticCurveTo(s * 0.12, -s * 0.12, s, 0); g.quadraticCurveTo(s * 0.12, s * 0.12, 0, s);
+    g.quadraticCurveTo(-s * 0.12, s * 0.12, -s, 0); g.quadraticCurveTo(-s * 0.12, -s * 0.12, 0, -s); g.fill(); g.restore();
+  };
+  star(960, 230, 58); star(1040, 330, 22);
+})();
+
+/* ---------- dot globe ---------- */
+(function () {
+  const c = document.getElementById("globe"), g = c.getContext("2d");
+  const W = c.width, H = c.height, cx = W / 2, cy = H / 2, R = 430;
+  const N = 2600, pts = [];
+  const ga = Math.PI * (3 - Math.sqrt(5));
+  const tilt = 0.38, rot = 0.6;
+  for (let i = 0; i < N; i++) {
+    const y = 1 - (i / (N - 1)) * 2, rad = Math.sqrt(1 - y * y), th = ga * i;
+    let x = Math.cos(th) * rad, z = Math.sin(th) * rad, yy = y;
+    let x1 = x * Math.cos(rot) + z * Math.sin(rot), z1 = -x * Math.sin(rot) + z * Math.cos(rot);
+    let y2 = yy * Math.cos(tilt) - z1 * Math.sin(tilt), z2 = yy * Math.sin(tilt) + z1 * Math.cos(tilt);
+    pts.push([x1 * R, y2 * R, z2]);
+  }
+  // glow core
+  const rg = g.createRadialGradient(cx - 80, cy - 100, 40, cx, cy, R * 1.25);
+  rg.addColorStop(0, "rgba(39,194,255,.20)"); rg.addColorStop(0.6, "rgba(20,99,243,.10)"); rg.addColorStop(1, "rgba(20,99,243,0)");
+  g.fillStyle = rg; g.beginPath(); g.arc(cx, cy, R * 1.25, 0, Math.PI * 2); g.fill();
+  // links between near front points
+  const front = pts.filter((p) => p[2] > 0.15);
+  g.lineWidth = 1;
+  for (let i = 0; i < front.length; i += 3) {
+    for (let j = i + 1; j < front.length; j += 7) {
+      const a = front[i], b = front[j], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      if (d < 46) { g.strokeStyle = `rgba(95,179,255,${0.10 + 0.25 * a[2]})`; g.beginPath(); g.moveTo(cx + a[0], cy + a[1]); g.lineTo(cx + b[0], cy + b[1]); g.stroke(); }
+    }
+  }
+  pts.sort((a, b) => a[2] - b[2]);
+  for (const [x, y, z] of pts) {
+    const f = (z + 1) / 2;
+    g.fillStyle = z > 0 ? `rgba(${(95 + 120 * f) | 0},${(179 + 60 * f) | 0},255,${0.25 + 0.75 * f})` : `rgba(80,120,220,${0.10 + 0.15 * f})`;
+    const s = 1.4 + 2.6 * f;
+    g.beginPath(); g.arc(cx + x, cy + y, s, 0, Math.PI * 2); g.fill();
+  }
+  // arcs
+  const arc = (a, b, h) => {
+    const p = pts[a], q = pts[b];
+    const mx = (p[0] + q[0]) / 2, my = (p[1] + q[1]) / 2 - h;
+    const lg = g.createLinearGradient(cx + p[0], cy + p[1], cx + q[0], cy + q[1]);
+    lg.addColorStop(0, "rgba(39,194,255,0)"); lg.addColorStop(0.5, "rgba(140,230,255,1)"); lg.addColorStop(1, "rgba(124,58,237,.2)");
+    g.save(); g.shadowColor = "rgba(39,194,255,.9)"; g.shadowBlur = 18; g.strokeStyle = lg; g.lineWidth = 3;
+    g.beginPath(); g.moveTo(cx + p[0], cy + p[1]); g.quadraticCurveTo(cx + mx, cy + my, cx + q[0], cy + q[1]); g.stroke(); g.restore();
+    for (const r of [p, q]) { g.save(); g.shadowColor = "#27c2ff"; g.shadowBlur = 24; g.fillStyle = "#fff"; g.beginPath(); g.arc(cx + r[0], cy + r[1], 6, 0, Math.PI * 2); g.fill(); g.restore(); }
+  };
+  const top = pts.slice(-900);
+  const pick = (k) => pts.indexOf(top[(k * 97) % top.length]);
+  arc(pick(1), pick(5), 180); arc(pick(9), pick(14), 140); arc(pick(20), pick(3), 220); arc(pick(31), pick(40), 120);
+  // orbit ring
+  g.save(); g.translate(cx, cy); g.rotate(-0.3);
+  const og = g.createLinearGradient(-620, 0, 620, 0);
+  og.addColorStop(0, "rgba(39,194,255,0)"); og.addColorStop(0.5, "rgba(39,194,255,.75)"); og.addColorStop(1, "rgba(124,58,237,0)");
+  g.strokeStyle = og; g.lineWidth = 2; g.beginPath(); g.ellipse(0, 0, 600, 150, 0, 0, Math.PI * 2); g.stroke(); g.restore();
+})();
+</script>
+</body>
+</html>

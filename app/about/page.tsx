@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Compass, Layers, Handshake } from "lucide-react";
 import { companyProfile } from "@/lib/company";
 import { PageHero } from "@/components/PageHero";
@@ -42,7 +43,14 @@ export default function AboutPage() {
       {/* 企業理念 */}
       <section className="relative overflow-hidden bg-navy-950 py-24 text-white sm:py-36">
         <div aria-hidden className="grid-bg-dark pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_80%_50%,black,transparent)]" />
-        <div aria-hidden className="pointer-events-none absolute top-1/2 right-[-10%] h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgb(20_99_243/0.4),transparent_65%)] blur-2xl" />
+        <Image
+          src="/images/illustrations/hero-ring.webp"
+          alt=""
+          width={1300}
+          height={1300}
+          sizes="(min-width: 1024px) 720px, 400px"
+          className="pointer-events-none absolute -top-10 -right-36 w-[400px] opacity-50 select-none sm:-right-20 sm:w-[520px] lg:top-1/2 lg:-right-16 lg:w-[720px] lg:-translate-y-1/2 lg:opacity-95"
+        />
         <div className="container-x relative">
           <Reveal>
             <p className="eyebrow flex items-center gap-3 text-brand-sky">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, CircleAlert, Check } from "lucide-react";
 import { services } from "@/lib/services";
@@ -95,6 +96,16 @@ export default function ServicePage() {
               </div>
 
               <div className="lg:col-span-7">
+                <Reveal className="mb-14 aspect-[16/10] overflow-hidden rounded-3xl shadow-[0_30px_60px_-30px_rgb(7_22_52/0.45)]">
+                  <Image
+                    src={s.image}
+                    alt={s.imageAlt}
+                    width={2400}
+                    height={1500}
+                    sizes="(min-width: 1024px) 680px, 100vw"
+                    className="h-full w-full object-cover"
+                  />
+                </Reveal>
                 <Reveal>
                   <p className="text-lg font-bold text-ink">対応できること</p>
                 </Reveal>

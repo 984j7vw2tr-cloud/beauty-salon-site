@@ -11,6 +11,9 @@ export type Service = {
   summary: string;
   lead: string;
   icon: "cpu" | "workflow" | "globe";
+  /** イメージ画像（public/images/illustrations/ 以下） */
+  image: string;
+  imageAlt: string;
   problems: string[];
   items: ServiceItem[];
 };
@@ -26,6 +29,8 @@ export const services: Service[] = [
     lead:
       "市販のツールでは合わない細かな業務にも、オーダーメイドなら対応できます。現場での使い方を理解したうえで、必要な機能にしぼった使いやすいシステムをつくります。",
     icon: "cpu",
+    image: "/images/illustrations/service-ai.webp",
+    imageAlt: "社内資料をもとにAIが質問に答える、チャット画面のイメージ",
     problems: [
       "社内の情報があちこちに散らばっていて、必要な資料がすぐに見つからない",
       "同じ質問に何度も答えていて、毎日かなりの時間を取られている",
@@ -65,6 +70,8 @@ export const services: Service[] = [
     lead:
       "大がかりなシステムを入れなくても、仕事のやり方は変えられます。まずは手間がかかっている作業をひとつ選び、無理のない範囲から自動化していきます。",
     icon: "workflow",
+    image: "/images/illustrations/service-automation.webp",
+    imageAlt: "問い合わせの受信からAIの判定、通知までが自動でつながる流れのイメージ",
     problems: [
       "手作業での入力や転記に時間がかかり、ミスも起きやすい",
       "問い合わせの対応に追われて、本来の仕事に手が回らない",
@@ -108,6 +115,8 @@ export const services: Service[] = [
     lead:
       "見た目のきれいさだけでなく、伝わること、問い合わせにつながることを大切にしています。スマートフォンでも見やすいサイトをつくります。",
     icon: "globe",
+    image: "/images/illustrations/service-web.webp",
+    imageAlt: "パソコンとスマートフォンで表示したホームページのイメージ",
     problems: [
       "ホームページがなく、お客様に安心してもらう材料が足りない",
       "サイトが古く、スマートフォンだと見づらい",

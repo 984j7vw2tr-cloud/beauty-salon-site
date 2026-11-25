@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Puzzle, Footprints, Zap, LifeBuoy } from "lucide-react";
 import { siteConfig } from "@/lib/site";
@@ -110,6 +111,16 @@ export default function HomePage() {
           </div>
 
           <div className="relative lg:pl-6">
+            <Image
+              src="/images/illustrations/hero-ring.webp"
+              alt=""
+              width={1300}
+              height={1300}
+              priority
+              sizes="(min-width: 1024px) 880px, 150vw"
+              className="animate-fade-up pointer-events-none absolute top-[46%] left-[54%] -z-10 w-[165%] max-w-[880px] -translate-x-1/2 -translate-y-1/2 select-none"
+              style={{ "--d": "200ms" } as React.CSSProperties}
+            />
             <HeroVisual />
           </div>
         </div>
@@ -122,8 +133,16 @@ export default function HomePage() {
       </section>
 
       {/* ============ MISSION ============ */}
-      <section className="relative bg-navy-950 py-24 text-white sm:py-36">
+      <section className="relative overflow-hidden bg-navy-950 py-24 text-white sm:py-36">
         <div aria-hidden className="grid-bg-dark pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]" />
+        <Image
+          src="/images/illustrations/globe.webp"
+          alt=""
+          width={1300}
+          height={1300}
+          sizes="(min-width: 1024px) 760px, 420px"
+          className="pointer-events-none absolute -top-24 -right-44 w-[380px] opacity-40 select-none sm:-right-32 sm:w-[520px] lg:top-1/2 lg:-right-72 lg:w-[760px] lg:-translate-y-1/2 lg:opacity-55"
+        />
         <div className="container-x relative grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <p className="eyebrow flex items-center gap-3 text-brand-sky">
@@ -183,13 +202,23 @@ export default function HomePage() {
                   href={`/service#${s.id}`}
                   className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-hair bg-white p-8 transition-all duration-500 hover:-translate-y-1 hover:border-transparent hover:bg-navy-950 hover:shadow-[0_30px_60px_-30px_rgb(7_22_52/0.5)] sm:p-10"
                 >
+                  <div className="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden sm:-mx-10 sm:-mt-10">
+                    <Image
+                      src={s.image}
+                      alt={s.imageAlt}
+                      width={2400}
+                      height={1500}
+                      sizes="(min-width: 1024px) 380px, 100vw"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                  </div>
                   <div className="flex items-start justify-between">
                     <span className="font-display text-sm font-bold text-brand transition-colors group-hover:text-brand-sky">{s.number}</span>
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-mist text-ink transition-colors duration-500 group-hover:bg-white/10 group-hover:text-white">
                       <ServiceIcon name={s.icon} />
                     </span>
                   </div>
-                  <h3 className="mt-12 font-display text-xl leading-tight font-bold tracking-[0.02em] text-ink transition-colors group-hover:text-white sm:text-[22px]">
+                  <h3 className="mt-6 font-display text-xl leading-tight font-bold tracking-[0.02em] text-ink transition-colors group-hover:text-white sm:text-[22px]">
                     {s.title}
                   </h3>
                   <p className="mt-5 flex-1 text-sm leading-[1.95] text-ink-soft transition-colors group-hover:text-white/65">{s.summary}</p>
