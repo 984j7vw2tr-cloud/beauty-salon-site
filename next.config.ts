@@ -16,8 +16,11 @@ if (process.env.NODE_ENV === "production") {
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // STATIC_EXPORT=1 は確認用の静的書き出し専用（通常の本番ビルドでは使いません）
+  ...(process.env.STATIC_EXPORT ? { output: "export" as const, trailingSlash: false } : {}),
   images: {
     formats: ["image/avif", "image/webp"],
+    unoptimized: Boolean(process.env.STATIC_EXPORT),
   },
 };
 
