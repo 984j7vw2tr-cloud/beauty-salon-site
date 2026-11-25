@@ -4,6 +4,8 @@ import { ArrowRight, ArrowUpRight, Puzzle, Footprints, Zap, LifeBuoy } from "luc
 import { siteConfig } from "@/lib/site";
 import { services } from "@/lib/services";
 import { works } from "@/lib/works";
+import { plans } from "@/lib/pricing";
+import { PlanPrices } from "@/components/PlanPrices";
 import { LineButton } from "@/components/LineButton";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -295,6 +297,46 @@ export default function HomePage() {
               </Reveal>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* ============ PRICE ============ */}
+      <section className="border-t border-hair bg-mist py-24 sm:py-32">
+        <div className="container-x">
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <SectionHeading
+              title="料金の目安"
+              description="小さな自動化から、システム開発・ホームページ制作まで。ご予算に合わせてご提案します。"
+            />
+            <Reveal>
+              <Link href="/price" className="group inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-brand">
+                料金の詳細を見る
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-hair bg-white transition-colors group-hover:border-brand group-hover:bg-brand group-hover:text-white">
+                  <ArrowRight size={16} aria-hidden />
+                </span>
+              </Link>
+            </Reveal>
+          </div>
+          <ul className="mt-14 grid gap-4 md:grid-cols-2">
+            {plans.map((plan, i) => {
+              return (
+                <Reveal as="li" key={plan.id} delay={i * 80}>
+                  <Link
+                    href="/price"
+                    className="group flex h-full flex-col rounded-3xl border border-hair bg-white p-7 sm:p-8 transition-all duration-500 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_24px_50px_-30px_rgb(7_22_52/0.35)]"
+                  >
+                    <span className="font-display text-sm font-bold text-brand">{plan.number}</span>
+                    <h3 className="mt-2 text-lg font-bold text-ink">{plan.name}</h3>
+                    <p className="mt-2 text-[13.5px] leading-[1.8] text-ink-soft">{plan.description}</p>
+                    <div className="mt-auto pt-6">
+                      <PlanPrices plan={plan} />
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </ul>
+          <p className="mt-6 text-xs text-ink-muted">※ 表示価格は税込の目安です。正式な料金はヒアリングのうえでお見積りします。</p>
         </div>
       </section>
 

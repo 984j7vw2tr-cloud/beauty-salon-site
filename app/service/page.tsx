@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, CircleAlert, Check } from "lucide-react";
+import { ArrowDown, ArrowRight, CircleAlert, Check } from "lucide-react";
 import { services } from "@/lib/services";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -9,6 +9,8 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { LineButton } from "@/components/LineButton";
 import { CtaSection } from "@/components/CtaSection";
+import { PlanPrices } from "@/components/PlanPrices";
+import { getPlanByService } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "サービス",
@@ -130,14 +132,7 @@ export default function ServicePage() {
                   ))}
                 </ul>
 
-                <Reveal className="mt-10 flex flex-col items-start gap-4 rounded-3xl bg-navy-950 p-7 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
-                  <p className="text-[15px] leading-[1.8] font-bold">
-                    このサービスについて、
-                    <br className="sm:hidden" />
-                    まずは気軽に聞いてみる
-                  </p>
-                  <LineButton size="md" label="LINEで相談する" className="w-full sm:w-auto" />
-                </Reveal>
+                <ServicePriceBox serviceId={s.id} />
               </div>
             </div>
           </div>
@@ -162,5 +157,39 @@ export default function ServicePage() {
 
       <CtaSection />
     </>
+  );
+}
+
+/** 各サービス下部：料金の目安と、料金ページ・LINE相談への導線 */
+function ServicePriceBox({ serviceId }: { serviceId: string }) {
+  const plan = getPlanByService(serviceId);
+  return (
+    <Reveal className="mt-10 rounded-3xl bg-navy-950 p-7 text-white sm:p-8">
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-sm font-bold text-white/70">料金の目安</p>
+          {plan && (
+            <div className="mt-2 sm:min-w-[300px]">
+              <PlanPrices plan={plan} tone="dark" />
+            </div>
+          )}
+        </div>
+        <Link
+          href="/price"
+          className="group inline-flex items-center gap-1.5 text-sm font-bold text-brand-sky hover:underline"
+        >
+          料金の詳細を見る
+          <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
+        </Link>
+      </div>
+      <div className="mt-6 flex flex-col items-start gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-[15px] leading-[1.8] font-bold">
+          このサービスについて、
+          <br className="sm:hidden" />
+          まずは気軽に聞いてみる
+        </p>
+        <LineButton size="md" label="LINEで相談する" className="w-full sm:w-auto" />
+      </div>
+    </Reveal>
   );
 }
