@@ -12,8 +12,7 @@ export default function NotFound() {
     <section className="relative flex min-h-[80svh] items-center overflow-hidden pt-28 pb-20">
       <div aria-hidden className="grid-bg pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,black,transparent)]" />
       <div className="container-x relative text-center">
-        <p className="eyebrow">エラー 404</p>
-        <p className="text-gradient mt-6 font-display text-[96px] leading-none font-extrabold tracking-tight sm:text-[160px]">404</p>
+        <p className="text-gradient font-display text-[96px] leading-none font-extrabold tracking-tight sm:text-[160px]">404</p>
         <h1 className="mt-6 text-xl font-bold text-ink sm:text-2xl">お探しのページが見つかりませんでした</h1>
         <p className="mx-auto mt-4 max-w-md text-sm leading-[2] text-ink-soft">
           ページが移動または削除された可能性があります。アドレスをご確認いただくか、トップページからお探しください。

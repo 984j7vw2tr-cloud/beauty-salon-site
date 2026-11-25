@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 };
 
 const flow = [
-  { title: "LINEでご相談", body: "まずはLINEで、お困りごとやご要望をお気軽にお送りください。" },
-  { title: "ヒアリング", body: "現在の業務フローや課題、目指したい状態を詳しくお伺いします。" },
+  { title: "LINEでご相談", body: "お困りごとやご要望を、LINEでお気軽にお送りください。" },
+  { title: "ヒアリング", body: "今の仕事の流れや課題、実現したいことを詳しくお聞きします。" },
   { title: "ご提案・お見積り", body: "課題に合った解決方法と進め方、費用をご提案します。" },
-  { title: "開発・制作", body: "途中経過を共有しながら、スピーディーに開発を進めます。" },
-  { title: "導入・改善", body: "導入後も、運用状況に合わせて改善を続けます。" },
+  { title: "開発・制作", body: "途中の状態を確認していただきながら、スピーディーに進めます。" },
+  { title: "導入・改善", body: "使い始めてからも、状況に合わせて改善を続けます。" },
 ];
 
 export default function ServicePage() {
@@ -31,7 +31,7 @@ export default function ServicePage() {
       <PageHero
         eyebrow="サービス"
         title="サービス"
-        description="AIシステム開発、業務自動化、Webサイト制作。企業や店舗が抱える課題に合わせて、必要な技術を必要な形でご提供します。"
+        description="AIシステムの開発、業務の自動化、ホームページ制作。企業や店舗の課題に合わせて、必要な技術を必要な形でご提供します。"
       />
 
       {/* Index */}
@@ -71,10 +71,9 @@ export default function ServicePage() {
                         {s.number}
                       </span>
                     </div>
-                    <h2 id={`${s.id}-title`} className="mt-8 font-display text-[28px] leading-[1.2] font-bold tracking-tight text-ink sm:text-4xl">
-                      {s.title}
+                    <h2 id={`${s.id}-title`} className="mt-8 text-[26px] leading-[1.4] font-bold text-ink sm:text-[32px]">
+                      {s.titleJa}
                     </h2>
-                    <p className="mt-3 text-base font-bold text-ink-soft">{s.titleJa}</p>
                     <p className="mt-6 text-[15px] leading-[2] text-ink-soft">{s.lead}</p>
                   </Reveal>
 
@@ -97,7 +96,7 @@ export default function ServicePage() {
 
               <div className="lg:col-span-7">
                 <Reveal>
-                  <p className="text-lg font-bold text-ink">提供できる内容</p>
+                  <p className="text-lg font-bold text-ink">対応できること</p>
                 </Reveal>
                 <ul className="mt-8 space-y-4">
                   {s.items.map((item, i) => (
@@ -122,9 +121,9 @@ export default function ServicePage() {
 
                 <Reveal className="mt-10 flex flex-col items-start gap-4 rounded-3xl bg-navy-950 p-7 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8">
                   <p className="text-[15px] leading-[1.8] font-bold">
-                    {s.titleJa}について
+                    このサービスについて、
                     <br className="sm:hidden" />
-                    相談してみる
+                    まずは気軽に聞いてみる
                   </p>
                   <LineButton size="md" label="LINEで相談する" className="w-full sm:w-auto" />
                 </Reveal>
@@ -137,11 +136,11 @@ export default function ServicePage() {
       {/* Flow */}
       <section className="border-t border-hair py-24 sm:py-32">
         <div className="container-x">
-          <SectionHeading eyebrow="ご相談の流れ" title="ご相談から導入までの流れ" description="まずはお気軽にご相談ください。内容を伺ったうえで、最適な進め方をご提案します。" />
+          <SectionHeading title="ご相談から導入までの流れ" description="まずはお気軽にご相談ください。お話を伺ったうえで、進め方をご提案します。" />
           <ol className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {flow.map((f, i) => (
               <Reveal as="li" key={f.title} delay={i * 80} className="relative rounded-3xl border border-hair bg-white p-7">
-                <span className="font-display text-xs font-bold tracking-[0.2em] text-brand">ステップ {i + 1}</span>
+                <span className="text-xs font-bold tracking-[0.1em] text-brand">ステップ{i + 1}</span>
                 <h3 className="mt-4 text-base font-bold text-ink">{f.title}</h3>
                 <p className="mt-3 text-[13.5px] leading-[1.9] text-ink-soft">{f.body}</p>
               </Reveal>

@@ -56,7 +56,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<Param
             {work.type === "sample" && (
               <p className="mt-6 inline-flex gap-2 rounded-xl bg-amber-50 px-4 py-3 text-[13px] leading-[1.8] text-amber-900">
                 <Info size={16} className="mt-0.5 shrink-0" aria-hidden />
-                本ページは開発サンプルの紹介です。実際の導入事例ではありません。
+                このページは開発サンプルの紹介です。実際の導入事例ではありません。
               </p>
             )}
           </div>
@@ -111,8 +111,8 @@ export default async function WorkDetailPage({ params }: { params: Promise<Param
                 </div>
               </dl>
               <div className="mt-8 border-t border-hair pt-7">
-                <p className="text-sm font-bold text-ink">同様のシステムを検討中の方へ</p>
-                <p className="mt-2 text-[13px] leading-[1.8] text-ink-soft">機能や費用感など、お気軽にご相談ください。</p>
+                <p className="text-sm font-bold text-ink">同じようなシステムをお考えの方へ</p>
+                <p className="mt-2 text-[13px] leading-[1.8] text-ink-soft">機能や費用の目安など、お気軽にご相談ください。</p>
                 <LineButton size="md" className="mt-5 w-full" />
               </div>
             </Reveal>
@@ -123,7 +123,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<Param
       {others.length > 0 && (
         <section className="border-t border-hair bg-mist py-20">
           <div className="container-x">
-            <h2 className="font-display text-xl font-bold text-ink">その他の開発事例</h2>
+            <h2 className="font-display text-xl font-bold text-ink">ほかの事例</h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {others.map((w) => (
                 <li key={w.slug}>

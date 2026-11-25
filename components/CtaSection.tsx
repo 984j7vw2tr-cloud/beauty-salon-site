@@ -14,7 +14,7 @@ export function CtaSection({
       相談してみませんか？
     </>
   ),
-  description = "「何から始めればいいか分からない」という段階でも大丈夫です。現在の業務や課題をお聞きし、最適な進め方をご提案します。",
+  description = "「何から始めればいいか分からない」という段階でも大丈夫です。今の業務や課題をお聞きして、進め方をご提案します。",
 }: Props) {
   return (
     <section className="px-3 pb-3 sm:px-5 sm:pb-5">
@@ -33,15 +33,14 @@ export function CtaSection({
         </svg>
         <div className="container-x relative text-center">
           <Reveal>
-            <p className="eyebrow text-brand-sky">お問い合わせ</p>
-            <h2 className="mt-6 font-display text-[26px] leading-[1.5] font-bold tracking-tight sm:text-4xl sm:leading-[1.45] lg:text-[44px]">
+            <h2 className="font-display text-[26px] leading-[1.5] font-bold tracking-tight sm:text-4xl sm:leading-[1.45] lg:text-[44px]">
               {title}
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-[15px] leading-[2] text-white/70">{description}</p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <LineButton size="xl" label="LINEで無料相談する" />
             </div>
-            <p className="mt-5 text-xs text-white/50">ご相談は無料です。お気軽にお問い合わせください。</p>
+            <p className="mt-5 text-xs text-white/50">ご相談は無料です。</p>
           </Reveal>
         </div>
       </div>

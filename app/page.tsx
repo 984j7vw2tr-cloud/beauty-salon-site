@@ -14,23 +14,23 @@ import { ServiceIcon } from "@/components/ServiceIcon";
 const strengths = [
   {
     icon: Puzzle,
-    title: "課題に合わせた柔軟な開発",
-    body: "決まったパッケージを当てはめるのではなく、業務の流れや現場の声を丁寧にお聞きし、本当に必要な機能を見極めて開発します。",
+    title: "課題に合わせて、柔軟に開発",
+    body: "決まったパッケージを当てはめるのではなく、仕事の流れや現場の声をじっくりお聞きしたうえで、本当に必要な機能を見きわめて開発します。",
   },
   {
     icon: Footprints,
-    title: "小さな業務改善から対応",
-    body: "「この作業だけ自動化したい」といった小さなご相談から対応します。効果を確かめながら、段階的に仕組みを広げていけます。",
+    title: "小さな改善から始められる",
+    body: "「この作業だけ自動化したい」といった小さなご相談も大歓迎です。効果を確かめながら、少しずつ仕組みを広げていけます。",
   },
   {
     icon: Zap,
-    title: "AIを活用したスピーディーな開発",
-    body: "開発工程そのものにもAIを積極的に取り入れ、品質を保ちながら、スピード感のある開発と改善のサイクルを実現します。",
+    title: "AIを活かして、すばやく開発",
+    body: "開発の作業にもAIを取り入れることで、品質を保ちながら短い期間でお届けします。修正や改善にもすばやく対応できます。",
   },
   {
     icon: LifeBuoy,
-    title: "導入後の改善・運用サポート",
-    body: "システムは使われてこそ価値があります。導入後も利用状況や現場の声をもとに、継続的な改善と運用をサポートします。",
+    title: "導入したあとも、しっかりサポート",
+    body: "システムは使われてこそ意味があります。使い始めてからも、現場の声や使われ方をもとに改善と運用をお手伝いします。",
   },
 ];
 
@@ -74,12 +74,8 @@ export default function HomePage() {
 
         <div className="container-x grid items-center gap-16 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
           <div>
-            <p className="eyebrow animate-fade-up flex items-center gap-3">
-              <span aria-hidden className="h-px w-8 bg-current opacity-60" />
-              AIとテクノロジーで、事業を前へ
-            </p>
             <h1
-              className="animate-fade-up mt-6 font-display text-[38px] leading-[1.25] font-bold tracking-[-0.01em] text-ink min-[400px]:text-[42px] sm:text-6xl lg:text-[62px] xl:text-[72px]"
+              className="animate-fade-up font-display text-[38px] leading-[1.25] font-bold tracking-[-0.01em] text-ink min-[400px]:text-[42px] sm:text-6xl lg:text-[62px] xl:text-[72px]"
               style={{ "--d": "100ms" } as React.CSSProperties}
             >
               <span className="inline-block">AIで、</span>
@@ -119,7 +115,6 @@ export default function HomePage() {
         </div>
 
         <div aria-hidden className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 lg:flex">
-          <span className="font-display text-[10px] font-semibold tracking-[0.3em] text-ink-muted">スクロール</span>
           <span className="relative h-12 w-px overflow-hidden bg-hair">
             <span className="animate-scroll-line absolute inset-x-0 top-0 h-1/2 bg-brand" />
           </span>
@@ -133,7 +128,7 @@ export default function HomePage() {
           <Reveal className="lg:col-span-4">
             <p className="eyebrow flex items-center gap-3 text-brand-sky">
               <span aria-hidden className="h-px w-8 bg-current opacity-60" />
-              私たちの使命
+              私たちの考え
             </p>
           </Reveal>
           <div className="lg:col-span-8">
@@ -141,16 +136,16 @@ export default function HomePage() {
               <h2 className="font-display text-[34px] leading-[1.35] font-bold tracking-[0.01em] sm:text-5xl lg:text-6xl">
                 テクノロジーで、
                 <br />
-                ビジネスを<span className="bg-gradient-to-r from-brand-light to-brand-sky bg-clip-text text-transparent">より良く</span>。
+                ビジネスを<span className="bg-gradient-to-r from-brand-light to-brand-sky bg-clip-text text-transparent">もっと良く</span>。
               </h2>
             </Reveal>
             <Reveal delay={120}>
               <p className="mt-10 max-w-2xl text-[15px] leading-[2.1] text-white/75 sm:text-[17px]">
                 私たちは、AIを導入すること自体を目的にはしません。
                 <br className="hidden sm:block" />
-                企業ごとに異なる課題を理解し、実際の業務改善につながる仕組みを構築すること。
+                会社ごとに違う課題をきちんと理解し、実際に仕事が楽になる仕組みをつくること。
                 <br className="hidden sm:block" />
-                テクノロジーを、ビジネスを前に進めるための確かな力に変えていきます。
+                それが、ciaryの役割だと考えています。
               </p>
             </Reveal>
           </div>
@@ -162,7 +157,6 @@ export default function HomePage() {
         <div className="container-x">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionHeading
-              eyebrow="サービス"
               title={
                 <>
                   課題を見つけ、
@@ -170,7 +164,7 @@ export default function HomePage() {
                   テクノロジーで解決する。
                 </>
               }
-              description="AIシステム開発から業務自動化、Webサイト制作まで。ビジネスの課題に合わせて、最適な手段を組み合わせてご提案します。"
+              description="AIシステムの開発から業務の自動化、ホームページ制作まで。課題に合わせて、いちばん合った方法をご提案します。"
             />
             <Reveal>
               <Link href="/service" className="group inline-flex items-center gap-2 font-display text-sm font-bold tracking-[0.14em] text-ink hover:text-brand">
@@ -198,7 +192,6 @@ export default function HomePage() {
                   <h3 className="mt-12 font-display text-xl leading-tight font-bold tracking-[0.02em] text-ink transition-colors group-hover:text-white sm:text-[22px]">
                     {s.title}
                   </h3>
-                  <p className="mt-2 text-sm font-bold text-ink-soft transition-colors group-hover:text-white/80">{s.titleJa}</p>
                   <p className="mt-5 flex-1 text-sm leading-[1.95] text-ink-soft transition-colors group-hover:text-white/65">{s.summary}</p>
                   <span className="mt-8 inline-flex items-center gap-1.5 font-display text-xs font-bold tracking-[0.16em] text-brand transition-colors group-hover:text-brand-sky">
                     詳しく見る
@@ -215,15 +208,14 @@ export default function HomePage() {
       <section className="bg-mist py-24 sm:py-36">
         <div className="container-x">
           <SectionHeading
-            eyebrow="選ばれる理由"
             title={
               <>
-                ciaryが
+                ciaryの
                 <br />
-                選ばれる理由
+                4つの強み
               </>
             }
-            description="技術を提供するだけでなく、ビジネスの成果に向き合うパートナーとして。私たちが大切にしている4つの約束です。"
+            description="システムを納めて終わりではなく、成果が出るまで一緒に取り組みます。ciaryが大切にしていることをご紹介します。"
           />
           <ul className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-hair bg-hair sm:grid-cols-2">
             {strengths.map((s, i) => (
@@ -249,13 +241,12 @@ export default function HomePage() {
         <div className="container-x">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <SectionHeading
-              eyebrow="制作実績"
-              title="開発可能なシステム例"
+              title="こんなシステムをつくれます"
               description={
                 <>
-                  ciaryが開発できるシステムの一例を、開発サンプルとしてご紹介します。
+                  ciaryで開発できるシステムの一例を、開発サンプルとしてご紹介します。
                   <br className="hidden sm:block" />
-                  <span className="text-xs text-ink-muted">※ 掲載内容は開発サンプルであり、実際の導入事例ではありません。</span>
+                  <span className="text-xs text-ink-muted">※ 掲載しているのは開発サンプルで、実際の導入事例ではありません。</span>
                 </>
               }
             />

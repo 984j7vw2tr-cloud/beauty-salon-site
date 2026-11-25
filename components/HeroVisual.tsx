@@ -3,9 +3,9 @@ import { Bot, Inbox, BellRing, Check, Sparkles } from "lucide-react";
 /** HEROの装飾ビジュアル（AIによる業務フローのイメージ図。実績データではありません） */
 export function HeroVisual() {
   const steps = [
-    { icon: Inbox, title: "問い合わせを受信", meta: "フォーム・LINE・メール" },
-    { icon: Bot, title: "AIが内容を分類・要約", meta: "内容と緊急度を自動で判定" },
-    { icon: BellRing, title: "担当者へ自動で通知", meta: "チャットへ即時に共有" },
+    { icon: Inbox, title: "問い合わせを受信", meta: "フォーム・LINE・メールから" },
+    { icon: Bot, title: "AIが内容を分類・要約", meta: "急ぎの案件かどうかも判断" },
+    { icon: BellRing, title: "担当者へ自動で通知", meta: "チャットですぐに共有" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export function HeroVisual() {
           </div>
           <span className="flex items-center gap-1.5 rounded-full bg-mist px-3 py-1 font-display text-[10px] font-semibold tracking-[0.18em] text-ink-muted">
             <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-line" />
-            自動化フロー
+            自動化のイメージ
           </span>
         </div>
 
@@ -62,8 +62,8 @@ export function HeroVisual() {
           <Sparkles size={16} />
         </span>
         <span>
-          <span className="block text-[12px] font-bold text-ink">定型業務をAIに任せる</span>
-          <span className="block text-[10.5px] text-ink-muted">人は、本来の仕事へ。</span>
+          <span className="block text-[12px] font-bold text-ink">決まった作業はAIに</span>
+          <span className="block text-[10.5px] text-ink-muted">人は、人にしかできない仕事へ。</span>
         </span>
       </div>
     </div>

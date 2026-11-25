@@ -9,7 +9,7 @@ import { CtaSection } from "@/components/CtaSection";
 export const metadata: Metadata = {
   title: "私たちについて",
   description:
-    "ciary Technologiesの企業理念「テクノロジーで、ビジネスをより良く。」と事業方針、概要をご紹介します。",
+    "ciary Technologiesの企業理念「テクノロジーで、ビジネスをもっと良く。」と事業方針、概要をご紹介します。",
   alternates: { canonical: "/about" },
   openGraph: { url: "/about", title: "私たちについて | ciary Technologies" },
 };
@@ -18,17 +18,17 @@ const policies = [
   {
     icon: Compass,
     title: "課題から考える",
-    body: "技術ありきではなく、まず企業や店舗が抱える課題を正しく理解することから始めます。AIは目的ではなく、課題を解決するための手段です。",
+    body: "技術ありきではなく、まずはお客様の課題を正しく理解するところから始めます。AIは目的ではなく、課題を解決するための手段のひとつです。",
   },
   {
     icon: Layers,
     title: "必要な技術を、必要な形で",
-    body: "規模や業種を問わず、それぞれの状況に合った最適な技術と規模感でご提案します。過剰な機能や不要なコストはかけません。",
+    body: "会社の規模や業種にかかわらず、状況に合った技術と規模でご提案します。必要のない機能や、余計なコストはかけません。",
   },
   {
     icon: Handshake,
-    title: "導入後まで伴走する",
-    body: "つくって終わりではなく、実際に現場で使われ、成果につながるまで。改善と運用を通じて、長く寄り添うパートナーを目指します。",
+    title: "導入したあとも、伴走する",
+    body: "つくって終わりにはしません。現場で実際に使われ、成果が出るまで、改善と運用を通じて長くおつきあいします。",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function AboutPage() {
             <h2 className="mt-8 font-display text-[34px] leading-[1.35] font-bold tracking-[0.01em] sm:text-5xl lg:text-6xl">
               テクノロジーで、
               <br />
-              ビジネスを<span className="bg-gradient-to-r from-brand-light to-brand-sky bg-clip-text text-transparent">より良く</span>。
+              ビジネスを<span className="bg-gradient-to-r from-brand-light to-brand-sky bg-clip-text text-transparent">もっと良く</span>。
             </h2>
           </Reveal>
           <Reveal delay={120}>
@@ -60,7 +60,7 @@ export default function AboutPage() {
               <p>AIとテクノロジーを活用し、企業が抱える課題を解決する。</p>
               <p>規模や業種を問わず、必要な技術を必要な形で提供する。</p>
               <p>
-                ciary Technologiesは、テクノロジーをより身近で、確かな成果につながるものにすることで、
+                ciaryは、テクノロジーをもっと身近で、きちんと成果の出るものにすることで、
                 企業や店舗のビジネスの可能性を広げていきます。
               </p>
             </div>
@@ -71,7 +71,7 @@ export default function AboutPage() {
       {/* Policy */}
       <section className="py-24 sm:py-36">
         <div className="container-x">
-          <SectionHeading eyebrow="事業方針" title="事業方針" description="私たちが仕事をするうえで大切にしている考え方です。" />
+          <SectionHeading title="事業方針" description="仕事を進めるうえで、私たちが大切にしていることです。" />
           <ul className="mt-16 grid gap-5 md:grid-cols-3">
             {policies.map((p, i) => (
               <Reveal as="li" key={p.title} delay={i * 100} className="rounded-3xl border border-hair bg-white p-8 sm:p-10">
@@ -91,7 +91,7 @@ export default function AboutPage() {
       <section className="bg-mist py-24 sm:py-36">
         <div className="container-x grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <SectionHeading eyebrow="概要" title="概要" />
+            <SectionHeading title="事業者概要" />
           </div>
           <Reveal className="lg:col-span-8">
             <dl className="overflow-hidden rounded-3xl border border-hair bg-white">

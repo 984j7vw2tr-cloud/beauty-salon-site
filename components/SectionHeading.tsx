@@ -1,7 +1,7 @@
 import { Reveal } from "./Reveal";
 
 type Props = {
-  eyebrow: string;
+  eyebrow?: string;
   title: React.ReactNode;
   description?: React.ReactNode;
   align?: "left" | "center";
@@ -20,12 +20,14 @@ export function SectionHeading({
   const center = align === "center";
   return (
     <Reveal className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <p className={`eyebrow flex items-center gap-3 ${center ? "justify-center" : ""} ${tone === "dark" ? "text-brand-sky" : ""}`}>
-        <span aria-hidden className="h-px w-8 bg-current opacity-60" />
-        {eyebrow}
-      </p>
+      {eyebrow && (
+        <p className={`eyebrow mb-5 flex items-center gap-3 ${center ? "justify-center" : ""} ${tone === "dark" ? "text-brand-sky" : ""}`}>
+          <span aria-hidden className="h-px w-8 bg-current opacity-60" />
+          {eyebrow}
+        </p>
+      )}
       <H
-        className={`mt-5 font-display text-[28px] leading-[1.35] font-bold tracking-tight sm:text-4xl lg:text-[44px] lg:leading-[1.25] ${
+        className={`font-display text-[28px] leading-[1.35] font-bold tracking-tight sm:text-4xl lg:text-[44px] lg:leading-[1.25] ${
           tone === "dark" ? "text-white" : "text-ink"
         }`}
       >

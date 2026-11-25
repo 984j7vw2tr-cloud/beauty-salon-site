@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 type Props = {
+  /** パンくずに表示するページ名 */
   eyebrow: string;
   title: string;
   description?: React.ReactNode;
@@ -14,10 +17,15 @@ export function PageHero({ eyebrow, title, description }: Props) {
         className="animate-float-slow pointer-events-none absolute -top-40 right-[-10%] h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,rgb(47_139_255/0.22),transparent_65%)] blur-2xl"
       />
       <div className="container-x relative">
-        <p className="eyebrow animate-fade-up flex items-center gap-3">
-          <span aria-hidden className="h-px w-8 bg-current opacity-60" />
-          {eyebrow}
-        </p>
+        <nav aria-label="パンくずリスト" className="animate-fade-up">
+          <ol className="flex items-center gap-2 text-xs text-ink-muted">
+            <li>
+              <Link href="/" className="transition-colors hover:text-brand">ホーム</Link>
+            </li>
+            <li aria-hidden>／</li>
+            <li aria-current="page" className="text-ink-soft">{eyebrow}</li>
+          </ol>
+        </nav>
         <h1
           className="animate-fade-up mt-5 font-display text-[32px] leading-[1.3] font-bold tracking-tight text-ink sm:text-5xl lg:text-[56px]"
           style={{ "--d": "80ms" } as React.CSSProperties}
