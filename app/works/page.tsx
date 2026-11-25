@@ -9,9 +9,9 @@ import { CtaSection } from "@/components/CtaSection";
 export const metadata: Metadata = {
   title: "制作実績・開発事例",
   description:
-    "NAGI Technologiesの制作実績・開発事例。AI社内問い合わせシステム、問い合わせ管理システム、業務自動化ダッシュボードなど、開発可能なシステムを開発サンプルとしてご紹介します。",
+    "ciary Technologiesの制作実績・開発事例。AI社内問い合わせシステム、問い合わせ管理システム、業務自動化ダッシュボードなど、開発可能なシステムを開発サンプルとしてご紹介します。",
   alternates: { canonical: "/works" },
-  openGraph: { url: "/works", title: "制作実績・開発事例 | NAGI Technologies" },
+  openGraph: { url: "/works", title: "制作実績・開発事例 | ciary Technologies" },
 };
 
 export default function WorksPage() {
@@ -23,7 +23,7 @@ export default function WorksPage() {
       <PageHero
         eyebrow="Works"
         title="制作実績・開発事例"
-        description="NAGI Technologiesが手がけるシステム・Webサイトをご紹介します。"
+        description="ciary Technologiesが手がけるシステム・Webサイトをご紹介します。"
       />
 
       <section className="py-20 sm:py-28">
@@ -53,7 +53,7 @@ export default function WorksPage() {
             <p className="mt-6 flex max-w-3xl gap-3 rounded-2xl border border-amber-500/25 bg-amber-50/70 p-5 text-[13.5px] leading-[1.9] text-amber-900">
               <Info size={18} className="mt-0.5 shrink-0" aria-hidden />
               <span>
-                以下は、NAGI Technologiesが開発可能なシステムの例として作成した<strong>開発サンプル</strong>です。
+                以下は、ciary Technologiesが開発可能なシステムの例として作成した<strong>開発サンプル</strong>です。
                 特定のお客様への導入実績ではありません。実際の機能・構成はご要望に合わせて設計します。
               </span>
             </p>

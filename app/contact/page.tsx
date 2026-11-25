@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "AIシステム開発・業務自動化・Web制作について、LINE公式アカウントからお気軽にご相談ください。ご相談は無料です。",
   alternates: { canonical: "/contact" },
-  openGraph: { url: "/contact", title: "お問い合わせ | NAGI Technologies" },
+  openGraph: { url: "/contact", title: "お問い合わせ | ciary Technologies" },
 };
 
 const examples = [

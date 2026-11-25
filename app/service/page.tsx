@@ -12,9 +12,9 @@ import { CtaSection } from "@/components/CtaSection";
 export const metadata: Metadata = {
   title: "サービス",
   description:
-    "AIシステム・Webアプリケーション開発、AI業務自動化・DX支援、Webサイト・LP制作。NAGI Technologiesが提供するサービスと、解決できる課題をご紹介します。",
+    "AIシステム・Webアプリケーション開発、AI業務自動化・DX支援、Webサイト・LP制作。ciary Technologiesが提供するサービスと、解決できる課題をご紹介します。",
   alternates: { canonical: "/service" },
-  openGraph: { url: "/service", title: "サービス | NAGI Technologies" },
+  openGraph: { url: "/service", title: "サービス | ciary Technologies" },
 };
 
 const flow = [

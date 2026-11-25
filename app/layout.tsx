@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  keywords: ["AIシステム開発", "業務自動化", "DX支援", "AIチャットボット", "Webアプリケーション開発", "ホームページ制作", "LP制作", "NAGI Technologies"],
+  keywords: ["AIシステム開発", "業務自動化", "DX支援", "AIチャットボット", "Webアプリケーション開発", "ホームページ制作", "LP制作", "ciary Technologies"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

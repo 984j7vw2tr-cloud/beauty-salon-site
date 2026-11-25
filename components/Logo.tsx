@@ -9,8 +9,8 @@ type Props = {
   width?: number;
 };
 
-// ロゴ原寸: 1380 x 355
-const RATIO = 355 / 1380;
+// ロゴ原寸: 1473 x 361（public/images/ciary-logo.png）
+const RATIO = 361 / 1473;
 
 export function Logo({ className = "", priority = false, width = 168 }: Props) {
   return (
@@ -20,7 +20,7 @@ export function Logo({ className = "", priority = false, width = 168 }: Props) {
       className={`inline-flex shrink-0 items-center ${className}`}
     >
       <Image
-        src="/images/nagi-logo.png"
+        src="/images/ciary-logo.png"
         alt={siteConfig.name}
         width={width}
         height={Math.round(width * RATIO)}

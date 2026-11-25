@@ -12,7 +12,7 @@ export type ProfileRow = {
 };
 
 export const companyProfile: ProfileRow[] = [
-  { label: "名称", value: "NAGI Technologies" },
+  { label: "名称", value: "ciary Technologies" },
   { label: "代表者", value: null },
   { label: "所在地", value: null },
   { label: "設立・開業", value: null },

@@ -18,11 +18,11 @@ function validateUrl(url: string): string | null {
 }
 
 export const siteConfig = {
-  name: "NAGI Technologies",
-  shortName: "NAGI",
+  name: "ciary Technologies",
+  shortName: "ciary",
   tagline: "AIとテクノロジーで、企業の可能性を広げる。",
   description:
-    "NAGI Technologiesは、企業の課題に合わせたAIシステム開発・業務自動化・Web制作を通じて、ビジネスの可能性を広げるテクノロジーカンパニーです。",
+    "ciary Technologiesは、企業の課題に合わせたAIシステム開発・業務自動化・Web制作を通じて、ビジネスの可能性を広げるテクノロジーカンパニーです。",
   url: (process.env.NEXT_PUBLIC_SITE_URL?.trim() || "http://localhost:3000").replace(/\/$/, ""),
   /** LINE公式アカウントURL。未設定・不正な値の場合は null */
   lineUrl: validateUrl(rawLineUrl),

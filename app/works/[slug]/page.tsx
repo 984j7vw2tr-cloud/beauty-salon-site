@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: `${work.title}（${label}）`,
     description: work.summary,
     alternates: { canonical: `/works/${work.slug}` },
-    openGraph: { url: `/works/${work.slug}`, title: `${work.title}（${label}） | NAGI Technologies`, description: work.summary },
+    openGraph: { url: `/works/${work.slug}`, title: `${work.title}（${label}） | ciary Technologies`, description: work.summary },
   };
 }
 

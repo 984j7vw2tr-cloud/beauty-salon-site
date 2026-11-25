@@ -1,4 +1,4 @@
-# NAGI Technologies 公式サイト
+# ciary Technologies 公式サイト
 
 Next.js (App Router) / TypeScript / Tailwind CSS v4 / Lucide Icons
 
@@ -15,7 +15,7 @@ npm run build && npm start   # 本番ビルド確認
 
 | 変数 | 用途 |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | 公開URL（例: `https://nagi-tech.jp`）。OGP・canonical・sitemap に使用 |
+| `NEXT_PUBLIC_SITE_URL` | 公開URL（例: `https://www.example.com`）。OGP・canonical・sitemap に使用 |
 | `NEXT_PUBLIC_LINE_URL` | LINE公式アカウントURL（例: `https://lin.ee/xxxx`）。全LINEボタンに一括反映 |
 
 `NEXT_PUBLIC_LINE_URL` が未設定のときは、各ボタンはCONTACTページへ遷移し、CONTACTページでは「準備中」と表示されます（仮URLは出力されません）。
@@ -30,7 +30,8 @@ npm run build && npm start   # 本番ビルド確認
 | 実績・開発サンプル | `lib/works.ts`（`type: "case"` を追加すると「制作実績」として表示） |
 | 事業者概要（代表者・所在地など） | `lib/company.ts`（`null` の項目は非表示） |
 | プライバシーポリシー | `app/privacy/page.tsx` |
-| ロゴ | `public/images/nagi-logo.png`（マーク: `nagi-mark.png`） |
+| ロゴ | `public/images/ciary-logo.png`（ワードマーク付き）／ `public/images/ciary-mark.png`（Cマーク単体） |
+| アイコン元画像 | `public/images/ciary-icon-512.png`（白背景の正方形。SNS・外部サービス用） |
 | favicon / OGP画像 | `app/icon.png`, `app/apple-icon.png`, `app/favicon.ico`, `public/images/og-image.png` |
 
 ## ページ

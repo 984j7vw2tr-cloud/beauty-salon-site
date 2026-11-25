@@ -43,7 +43,7 @@ const jsonLd = {
   "@type": "Organization",
   name: siteConfig.name,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/images/nagi-logo.png`,
+  logo: `${siteConfig.url}/images/ciary-logo.png`,
   description: siteConfig.description,
 };
 
@@ -217,14 +217,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ WHY NAGI ============ */}
+      {/* ============ WHY CIARY ============ */}
       <section className="bg-mist py-24 sm:py-36">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Why NAGI"
+            eyebrow="Why ciary"
             title={
               <>
-                NAGI Technologiesが
+                ciary Technologiesが
                 <br />
                 選ばれる理由
               </>
@@ -259,7 +259,7 @@ export default function HomePage() {
               title="開発可能なシステム例"
               description={
                 <>
-                  NAGI Technologiesが開発できるシステムの一例を、開発サンプルとしてご紹介します。
+                  ciary Technologiesが開発できるシステムの一例を、開発サンプルとしてご紹介します。
                   <br className="hidden sm:block" />
                   <span className="text-xs text-ink-muted">※ 掲載内容は開発サンプルであり、実際の導入事例ではありません。</span>
                 </>

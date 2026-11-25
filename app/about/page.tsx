@@ -9,9 +9,9 @@ import { CtaSection } from "@/components/CtaSection";
 export const metadata: Metadata = {
   title: "私たちについて",
   description:
-    "NAGI Technologiesの企業理念「Technology for a Better Business.」と事業方針、概要をご紹介します。",
+    "ciary Technologiesの企業理念「Technology for a Better Business.」と事業方針、概要をご紹介します。",
   alternates: { canonical: "/about" },
-  openGraph: { url: "/about", title: "私たちについて | NAGI Technologies" },
+  openGraph: { url: "/about", title: "私たちについて | ciary Technologies" },
 };
 
 const policies = [
@@ -59,7 +59,7 @@ export default function AboutPage() {
               <p>AIとテクノロジーを活用し、企業が抱える課題を解決する。</p>
               <p>規模や業種を問わず、必要な技術を必要な形で提供する。</p>
               <p>
-                NAGI Technologiesは、テクノロジーをより身近で、確かな成果につながるものにすることで、
+                ciary Technologiesは、テクノロジーをより身近で、確かな成果につながるものにすることで、
                 企業や店舗のビジネスの可能性を広げていきます。
               </p>
             </div>
